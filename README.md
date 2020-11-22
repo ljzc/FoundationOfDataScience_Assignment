@@ -1,4 +1,4 @@
-# FoundationOfDataScience_Assignment
+# FoundationOfDataScience_Assignment_preparation
 
-数据科学基础课程大作业
+数据科学基础课程大作业：项目准备和基础知识
 
