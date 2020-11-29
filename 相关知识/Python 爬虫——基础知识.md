@@ -263,6 +263,8 @@
 
 [廖雪峰官网Python正则表达式](https://www.liaoxuefeng.com/wiki/1016959663602400/1017639890281664)
 
+[正则表达式 | 静觅 (cuiqingcai.com)](https://cuiqingcai.com/5530.html)
+
 - 匹配原则
 
 | 正则表达式字符 | 含义                                                         |
@@ -285,11 +287,13 @@
   - 使用`r''`来表示正则表达式，**例如**：使用`r'ABC-001'`表示正则字符串 *'ABC-001'*
   - re模块中的方法：
 
-	| 方法                                  | 简介                                                         |
-  | ------------------------------------- | ------------------------------------------------------------ |
-  | `re.match(regular_expression,string)` | 用正则表达式参数`regular_expression`去匹配字符串参数`string`，如果匹配成功则返回一个`Match`对象作为匹配结果，否则返回`None` |
-  | `re.split(regular_expression,string)` | 用正则表达式参数`regular_expression`作为分割表示，去分割字符串参数`string` |
-
+	| 方法                                     | 简介                                                         |
+  | ---------------------------------------- | ------------------------------------------------------------ |
+  | `re.match(regular_expression,string)`    | 用正则表达式参数`regular_expression`去匹配字符串参数`string`，如果匹配成功则返回一个`Match`对象作为匹配结果，否则返回`None` |
+  | `re.split(regular_expression,string)`    | 用正则表达式参数`regular_expression`作为分割表示，去分割字符串参数`string` |
+| `re.search(regular_expression,string)`   | 返回一段文本中与目标正则表达式相匹配的第一个段文本中的指定内容, 提取的内容使用下面要介绍的**分组**来指定 |
+  | `re.findall(regular_expression, string)` | `search()`方法只能返回第一个匹配到的文本中的指定内容, 而`findall()`可以返回所有的指定内容. |
+  
    - 分组：
   
   用`()`表示的就是要提取的分组，例如：`^(\d{3})-(\d{3,8})$`分别定义了两个组，可以直接从匹配的字符串中提取出区号和本地号码：
