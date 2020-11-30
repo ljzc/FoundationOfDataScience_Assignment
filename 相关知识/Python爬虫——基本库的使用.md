@@ -60,6 +60,10 @@
 
 *（这个库好像不是特别好用...直接看下一个吧）*
 
+### 解析链接
+
+
+
 ## requests库
 
 
@@ -124,12 +128,10 @@ pip install requests
     
     ```
 
-    事实证明, 有些新闻网站的实际编码与header中标明的不一致. 似乎只要涉及到中文编码, 解析就会出问题.
-
-    [chardet库](#chardet库)可以帮我们解决这个问题
+    事实证明, 有些新闻网站的实际编码与header中标明的不一致. 似乎只要涉及到中文编码, 解析就会出问题。[chardet库](#chardet库)可以帮我们解决这个问题。
 
     ```python
-    def get_with_keywords():
+def get_with_keywords():
         data = {
             'name': 'germey',
             'age': 22
@@ -137,11 +139,11 @@ pip install requests
         r = requests.get("http://httpbin.org/get", params=data)  # 这是一个测试网站， 用来返回请求的一些信息，返回的是一个json字符串。
         print(r.text)
     ```
-
+    
     结果:
 
     ```
-    {
+{
       "args": {
         "age": "22", 
         "name": "germey"
@@ -157,20 +159,20 @@ pip install requests
       "url": "http://httpbin.org/get?name=germey&age=22"
     }
     ```
-
+    
     如果已知是网站返回的是一个json字符串, 可使用以下方法将该字符串解析成一个json字典:
 
     ```python
-    print(r.json())
+print(r.json())
     ```
-
+    
     结果:
 
     ```python
-    {'args': {'age': '22', 'name': 'germey'}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.25.0', 'X-Amzn-Trace-Id': 'Root=1-5fc30be8-443358b47d49d07905d6566a'}, 'origin': '202.119.46.77', 'url': 'http://httpbin.org/get?name=germey&age=22'}
+{'args': {'age': '22', 'name': 'germey'}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.25.0', 'X-Amzn-Trace-Id': 'Root=1-5fc30be8-443358b47d49d07905d6566a'}, 'origin': '202.119.46.77', 'url': 'http://httpbin.org/get?name=germey&age=22'}
     
     ```
-
+  
 - 添加**headers**
 
   访问某些网站时需要添加请求头中的参数, 可以用以下方法来添加请求头参数:
@@ -217,6 +219,12 @@ pip install requests
   
   ```
 
+- 设置Response对象的编码格式：
+
+  ```python
+  response.encoding = "utf-8"# 或者其他类型
+  ```
+
   
 
 ## Beautiful Soup
@@ -239,13 +247,318 @@ pip install requests
   pip install beautifulsoup4
   ```
 
-  
+### 功能简介
+
+>Beautiful Soup 提供一些简单的、Python 式的函数来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。
+>
+>**Beautiful Soup 自动将输入文档转换为 Unicode 编码，输出文档转换为 UTF-8 编码。你不需要考虑编码方式，除非文档没有指定一个编码方式，这时你仅仅需要说明一下原始编码方式就可以了。**
+>
+>Beautiful Soup 已成为和 lxml、html6lib 一样出色的 Python 解释器，为用户灵活地提供不同的解析策略或强劲的速度。
 
 ### 基本用法
 
+```python
+from bs4 import BeautifulSoup
+import requests
+import util
+def basic_usage():
+    response = requests.get("http://news.jstv.com/a/20201129/1606629502561.shtml")
+    # response.encoding = util.detect_encoding("https://www.gdtv.cn/article/1e8b5240d9dd305983d13d2de2a8932b")
+    encoding = util.set_encoding(response)
+    soup = BeautifulSoup(response.text, 'lxml', from_encoding=encoding)
+    print(soup.prettify())
+    print(soup.title.string)
 ```
 
+结果:
+
 ```
+<!DOCTYPE html>
+<html class="no-js">
+ //省略具体内容
+</html>
+警惕新冠病毒“物传人”，教你这样防范_荔枝网新闻
+
+
+```
+
+**注意**: 对于结构不完整的heml代码, 在`Beautifulsoup`对象初始化的时候就会将其修正
+
+- 获取`name`和其它属性
+
+  ```python
+  def get_attr():
+      response = requests.get("http://news.jstv.com/a/20201129/1606629502561.shtml")
+      # response.encoding = util.detect_encoding("https://www.gdtv.cn/article/1e8b5240d9dd305983d13d2de2a8932b")
+      encoding = util.set_encoding(response)
+      soup = BeautifulSoup(response.text, 'lxml', from_encoding=encoding)
+      print(soup.title.name)
+      print(soup.title.attrs)
+  ```
+
+- 获取内容
+
+  ```python
+  def get_paragraph():
+      response = requests.get("http://news.jstv.com/a/20201129/1606629502561.shtml")
+      # response.encoding = util.detect_encoding("https://www.gdtv.cn/article/1e8b5240d9dd305983d13d2de2a8932b")
+      encoding = util.set_encoding(response)
+      soup = BeautifulSoup(response.text, 'lxml', from_encoding=encoding)
+      print(soup.p)
+  ```
+
+
+
+- 嵌套选择和关联选择
+
+  - 在使用这两个功能之前，需要先回顾以下html代码的树状结构，先来看一段简单的[html代码]()（这一部分所有功能演示都以此为例）：
+
+    ```html
+    <!doctype html>
+    <html>
+    
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width initial-scale=1'>
+        <title></title>
+    </head>
+    
+    <body>
+        <h1>一级标题</h1>
+        <h2>二级标题1</h2>
+        <h2>二级标题2</h2>
+        <h2>二级标题3</h2>
+        <ul>
+            <li>
+                <p>项目1</p>
+            </li>
+            <li>
+                <p>项目2</p>
+                <ul>
+                    <li>
+                        <p>项目2.1</p>
+                    </li>
+                    <li>
+                        <p>项目2.2</p>
+                        <p>项目2.2中的段落</p>
+                    </li>
+                    <li>
+                        <p>项目2.3</p>
+                        <p><a href=''>项目2.3中的地址</a></p> 
+                    </li>
+    
+                </ul>
+            </li>
+            <li>
+                <p>项目3</p>
+            </li>
+    
+        </ul>
+        <p>段落1</p>
+        <p>段落2</p>
+        <p>段落3</p>
+    </body>
+    
+    </html>
+    ```
+
+    下面给出该段代码的树状图以便理解之后的演示:
+
+    ![html](reference/image/html.svg)
+
+  - 嵌套选择
+
+    ```python
+    def get_child():
+        html = "是上述网页的代码,为了代码结构清晰,我已将其省略"
+        soup = BeautifulSoup(html, 'lxml')
+    
+        # 使用嵌套选择
+        print(type(soup.body.h1))
+        print(soup.body.h1)
+    ```
+
+    
+
+  - 关联选择
+
+    - 选择直接子节点
+
+      **调用contents属性**
+
+      ```python
+      # 使用关联选择
+          #  使用contents属性选择所有的直接子节点（是一个list）
+          print(soup.body.ul.contents)
+      ```
+
+      执行结果:
+
+      ```
+      ['\n', 
+      <li><p>项目1</p></li>, 
+      '\n', 
+      <li>//为了结构清晰,我将这部分内容省略了</li>, 
+      '\n', 
+      <li><p>项目3</p></li>, 
+      '\n']
+      ```
+
+      
+
+      **调用children属性**
+
+      ```python
+      print(soup.body.ul.children)
+          for index, tag in enumerate(soup.body.ul.children):
+              print("index",index,": ",tag)
+      ```
+
+      结果:
+
+      ```
+      <list_iterator object at 0x000001EE5CB0D5E0>
+      index 0 :  
+      
+      index 1 :  <li><p>项目1</p></li>
+      index 2 :  
+      
+      index 3 :  <li>//为了结果清晰,我将这部分内容省略了</li>
+      index 4 :  
+      
+      index 5 :  <li><p>项目3</p></li>
+      index 6 :  
+      
+      ```
+
+      调用children属性返回的是一个list_iterator对象.
+
+      **注意:** 
+
+      无论是调用contents属性还是children属性, 它们都会将网页代码中的换行也作为某个标签的子节点, 所以在使用这种方法进行处理的时候要注意对换行符号的处理.
+
+    - 选择父节点
+
+      ```python
+          #  调用parent属性来获得某个节点的直接父节点
+          print(soup.body.ul.li.p.parent)
+      ```
+
+      执行结果
+
+      ```
+      <li>
+      <p>项目1</p>
+      </li>
+      ```
+
+      从结果中我们可以发现一点, 如果一个节点的子节点中有一些标签名称相同的字节点, 那么我们使用嵌套选择去选择这个标签名时, 返回的结果时html代码中第一个与之相匹配的标签!
+
+    - 选择兄弟节点
+
+      ```python
+        #  选择兄弟节点
+          print(soup.body.ul.li  # 第一个<li>
+              .next_sibling    # 换行符号
+                .next_sibling    # 第二个<li>
+              )
+          print(soup.body.previous_sibling  # 是个换行符号
+              .previous_sibling  # 是head
+                )
+          print(list(soup.body.ul.next_siblings))
+          print(list(soup.body.ul.ul.previous_siblings))
+      ```
+      
+      结果：
+      
+      ```
+      <li>...</li>
+      <head>...</head>
+      ['\n', <p>段落1</p>, '\n', <p>段落2</p>, '\n', <p>段落3</p>, '\n']
+      ['\n', <p>项目2</p>, '\n']
+      ```
+  
+
+- 筛选器选择
+
+  以上介绍的所有选择方法都无法脱离网页标签的树状结构, 在对复杂的网页进行搜索的时候是非常麻烦的, 而筛选器选择法则可以跳脱出网页代码的树状结构, 按照指定的条件进行全局搜索!
+
+  这里选择在大作业中预期使用频率最高的`find_all()`来介绍:
+
+  - 函数api
+
+    ```python
+        def find_all(self, name=None, attrs={}, recursive=True, text=None,
+                     limit=None, **kwargs):
+            """Look in the children of this PageElement and find all
+            PageElements that match the given criteria.
+    
+            All find_* methods take a common set of arguments. See the online
+            documentation for detailed explanations.
+    
+            :param name: A filter on tag name.
+            :param attrs: A dictionary of filters on attribute values.
+            :param recursive: If this is True, find_all() will perform a
+                recursive search of this PageElement's children. Otherwise,
+                only the direct children will be considered.
+            :param limit: Stop looking after finding this many results.
+            :kwargs: A dictionary of filters on attribute values.
+            :return: A ResultSet of PageElements.
+            :rtype: bs4.element.ResultSet
+            """
+            generator = self.descendants
+            if not recursive:
+                generator = self.children
+            return self._find_all(name, attrs, text, limit, generator, **kwargs)
+    ```
+
+  - 参数列表
+
+    | 参数名称  | 含义           | 备注                                                         |
+    | --------- | -------------- | ------------------------------------------------------------ |
+    | name      | 标签名称       | 例如:`p`,`head`,`body`等等                                   |
+    | attrs     | 标签的参数     | 例如:`class`,`name`等等                                      |
+    | recursive | 是否递归       | 一般来说使用默认值, 选择否则尽在当前节点的子节点中进行查找   |
+    | text      | 节点文本       | 在标签`<h4>Hello</h4>`中`Hello`就属于标签文本, 该参数可以传入普通字符串, 也可以传入正则表达式(使用`re.compile("regular_expression")`来构建一个正则表达式对象), 这一点对于网页文字内容的提取至关重要! |
+    | limit     | 查找的最大数量 | 查找出不超过此数量的符合要求的标签, 默认情况下会查找出所有的符合要求的标签 |
+
+  - 返回值
+
+    返回一个由一系列标签组成的list.
+
+  - **注意:**
+
+    这些参数是可以叠加使用的, 当使用多个参数时, 选择的条件也会被叠加, 这对于我们筛选网页内容非常有利!
+
+  - 其它的筛选方法:
+
+    其余筛选方法的参数与`find_all()`基本相同, 返回值也基本相同, 只不过是查找的范围有所区别罢了, 不在赘述:
+
+    | 方法                                            | 简介                                                         |
+    | ----------------------------------------------- | ------------------------------------------------------------ |
+    | `find()`                                        | 返回第一个符合要求的对象                                     |
+    | `find_parents()` 和 `find_parent()`             | 前者返回所有祖先节点，后者返回直接父节点                     |
+    | `find_next_siblings()` 和 `find_next_sibling()` | 前者返回后面所有的兄弟节点，后者返回后面第一个兄弟节点。     |
+    | `find_all_next()` 和 `find_next()`              | 前者返回节点后所有符合条件的节点，后者返回第一个符合条件的节点。 |
+    | `find_all_previous()` 和 `find_previous()`      | 前者返回节点后所有符合条件的节点，后者返回第一个符合条件的节点。 |
+
+  - 实例
+
+    下面我将以一个示例来进一步介绍`find_all()`的用法:
+
+    假设我们想要爬取这个新闻的内容:[警惕新冠病毒“物传人”，教你这样防范_荔枝网新闻 (jstv.com)](http://news.jstv.com/a/20201129/1606629502561.shtml)
+
+    首先我们观察[网页源代码]()的结构:
+
+    - 网页的大标题位于`<title>`标签中
+    - 网页的所有小标题都直接位于`<strong>`标签中
+    - 网页的正文部分都直接位于`<p>`标签中, 而且还有一个`cms-style`的参数
+
+- CSS选择器
+
+  略(用到再说)
+
+  [[Python3 网络爬虫开发实战\] 4.2 - 使用 Beautiful Soup | 静觅 (cuiqingcai.com)](https://cuiqingcai.com/5548.html)
 
 ## chardet库
 
@@ -272,15 +585,16 @@ print chardet.detect(raw_data)  # {'confidence': 0.99, 'encoding': 'GB2312'}
 为了减少代码重复, 我在util中提供了如下方法:
 
 ```python
-def detect_encoding(url, headers=None):
+def set_encoding(response: requests.Response) -> str:
     r"""
-
-    :param url: 网址
-    :param headers: 请求头
-    :return:
+    将response的编码设置为正确的编码
+    :param response: 一个requests.Response对象
+    :return: 该网页的编码类型
     """
-    raw_data = request.urlopen(url).read()
-    return chardet.detect(raw_data)['encoding']
+    raw_data = response.content
+    encoding = chardet.detect(raw_data)["encoding"]
+    response.encoding = encoding
+    return encoding
 ```
 
 使用前记得impot:
