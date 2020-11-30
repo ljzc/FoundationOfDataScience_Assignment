@@ -1,0 +1,45 @@
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv='Content-Security-Policy' content='block-all-mixed-content'>
+    <title>ии????????</title>
+    <meta name="baidu-site-verification" content="7uOfgV8KB5" />
+    <meta name="sogou_site_verification" content="RKo6CUD3vK" />
+    <meta name="360-site-verification" content="8fffaf13930370a126f0df0d9469ddd8" />
+    <meta name="shenma-site-verification" content="d0fed8bc1c8f00a457963b05612411a2_1502433349" />
+    <meta name="google-site-verification" content="u0ka1-HM7dBL9bOQmmJzsWDIlIT8TPtgXmO4ku0fsu8" />
+    <link href="//img2-cloud.itouchtv.cn/sitecdn/cdn-lib/cropper/cropper.min.css" rel="stylesheet">
+    <link href="//img2-cloud.itouchtv.cn/sitecdn/cdn-lib/antd/3.26.4/antd.min.css" rel="stylesheet">
+    <link href="//img2-cloud.itouchtv.cn/sitecdn/cdn-lib/videojs/video-js.min.css" rel="stylesheet">
+    <script src="//img2-cloud.itouchtv.cn/sitecdn/cdn-lib/videojs/video.min.js"></script>
+    <script src="//img2-cloud.itouchtv.cn/sitecdn/cdn-lib/videojs/videojs-contrib-hls.js"></script>
+    <script src="//img2-cloud.itouchtv.cn/sitecdn/utils/composeOss_sdk_1.1.0.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    
+    <link rel="stylesheet" href="https://img.gdtv.cn/sitecdn/platforms/gdtv/css/manifest_25ea2fe7.css">
+    <link rel="stylesheet" href="https://img.gdtv.cn/sitecdn/platforms/gdtv/css/commons_25ea2fe7.css">
+    <link rel="stylesheet" href="https://img.gdtv.cn/sitecdn/platforms/gdtv/css/vendor_25ea2fe7.css">
+    <link rel="stylesheet" href="https://img.gdtv.cn/sitecdn/platforms/gdtv/css/client_25ea2fe7.css">
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <script src="https://img.gdtv.cn/sitecdn/platforms/gdtv/js/manifest_25ea2fe7.js"></script>
+    <script src="https://img.gdtv.cn/sitecdn/platforms/gdtv/js/commons_25ea2fe7.js"></script>
+    <script src="https://img.gdtv.cn/sitecdn/platforms/gdtv/js/vendor_25ea2fe7.js"></script>
+    <script src="https://img.gdtv.cn/sitecdn/platforms/gdtv/js/client_25ea2fe7.js"></script>
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278159012'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1278159012' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script>
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / window.innerWidth;
+        var ua = navigator.userAgent;
+        document.getElementById('viewport').content = 'width=device-width, initial-scale=' + phoneScale + '"';
+    </script>
+</body>
+
+</html>

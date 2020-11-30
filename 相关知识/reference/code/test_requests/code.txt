@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta name="publisher" content="TideCMS 9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>璀︽儠鏂板啝鐥呮瘨鈥滅墿浼犱汉鈥濓紝鏁欎綘杩欐牱闃茶寖_鑽旀灊缃戞柊闂�</title>   
+    <meta name="keywords" content="鏂板啝鐥呮瘨" />
+    <meta name="description" content="鍥藉唴澶氬湴鎺ヨ繛鍑虹幇鏈�鍦版柊鍐犺偤鐐庣‘璇婄梾渚嬶紝鏂板啝鐥呮瘨鈥滅墿浼犱汉鈥濈殑鐜拌薄寮曞彂鍏�浼楀叧娉ㄣ��">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="http://static.jstv.com/ui/litchinews/css/list.css?v=1" type="text/css" charset="utf-8"/>	
+    <link rel="stylesheet" href="http://static.jstv.com/ui/litchinews/css/listFontColorPC.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="http://static.jstv.com/ui/jstv/css/reset.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="http://static.jstv.com/ui/jstv/css/common.css" type="text/css" id="common" charset="utf-8"/>
+    <link rel="stylesheet" href="http://static.jstv.com/ui/common/css/audioMain.css" type="text/css" id="common" charset="utf-8"/>
+
+   <script type="text/javascript">
+		//for PC 锛坖s浠ｇ爜鏀惧湪head鏍囩�惧唴绗�涓�琛岋紝淇濊瘉鍦╰itle鏍囩�句箣鍓嶏級
+		var isOnPc = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent));
+		var urlCurrent = location.href;
+		if(!isOnPc){
+			var urlNew = urlCurrent.replace("http://news.jstv.com/a/","http://news.jstv.com/wap/a/");
+			location.href = urlNew;
+		}
+    </script>
+    <!--<link rel="stylesheet" href="http://static.jstv.com/ui/jstv/css/article.css" type="text/css" charset="utf-8"/>-->
+ <!-- jquery begin -->
+    <script type="text/javascript" src="http://static.jstv.com/ui/jstv/js/jq172.js"></script>   
+    <script src="http://static.jstv.com/ui/litchinews/js/jquery.cookie.js"></script>
+    <!-- jquery end -->
+    <script>
+		var isLitcheePart = "";
+		var oLink = document.createElement('link');
+		if(!!isLitcheePart){
+                        //鍥剧墖鑳屾櫙鍔犻�滆壊
+		$(document).ready(function(){
+			$(".content img").each(function(i){
+				$(this).css({"max-width":"595px","max-height":"392px"});
+				$(this).parent().css({"display":"block","width": "645px","margin-top":"20px", "text-align":"center","background-color":"#f5f5f5","padding":"23px 0 18px 0"});
+			});
+		});
+			oLink.href = "http://static.jstv.com/ui/jstv/css/article1.css";
+		}else{
+			oLink.href = "http://static.jstv.com/ui/jstv/css/article.css";
+		}
+		oLink.type = "text/css";
+		oLink.rel = "stylesheet";
+		oLink.charset = "utf-8";
+		document.getElementsByTagName("head")[0].appendChild(oLink);
+                
+    </script>
+    <!-- PHPADM Start From PHPAD.CN -->
+    <!-- 璇风疆浜庢墍鏈夊箍鍛婁綅浠ｇ爜涔嬪墠 -->
+    <script type='text/javascript' src='http://gp.jstv.com/static_files/ad/PHPADM_STAT.js'></script>
+    <!-- PHPADM End From PHPAD.CN -->
+    <script src="http://static.jstv.com/ui/common/file/baidu-push.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!-- Gridsum begin. -->
+<script type="text/javascript">
+var _gsChannel='/鑽旀灊鏂伴椈/鍥藉唴/';
+var _gsIsWap=0;
+var _gsGlobalId=27942420;
+</script>
+<!--Gridsum end. -->
+<div class="top-nav J-top-bar">
+    <div class="wrap clearfix">
+        <div class="left fL">
+            <ul>
+                <li>
+                    <a href="#" class="txt" rel="nofollow"><i class="ico-sp ico-app "></i>绉诲姩瀹㈡埛绔�<i class="ico-sp ico-arr"></i></a>
+                    <div class="layer mobile-layer">
+                         <a href="http://www.jstv.com/s/lzxw5/" target="_blank"><img src="http://static.jstv.com/ui/news/app_img1.png" alt="鑽旀灊鏂伴椈"><span>鑽旀灊鏂伴椈</span></a>
+                         <a href="http://www.ourjiangsu.com/app/download/pc.html" target="_blank"><img src="http://static.jstv.com/ui/news/app_wosu.png" alt="鎴戣嫃"><span>鎴戣嫃</span></a>
+                         <!--<a href="http://www.jstv.com/mobile/platform/index.shtml#a_wxjs" target="_blank"><img src="http://static.jstv.com/ui/news/app_img3.png" alt="鏃犵嚎姹熻嫃"><span>鏃犵嚎姹熻嫃</span></a>-->
+                         <!--<a href="http://www.jstv.com/mobile/cjsjt/" target="_blank"><img src="http://static.jstv.com/ui/news/app_img4.png" alt="澶╃考闀挎睙"><span>澶╃考闀挎睙</span></a>-->
+                         <!--<a href="http://www.jstv.com/wojia/download/" target="_blank"><img src="http://static.jstv.com/ui/news/app_wojia.png" alt="娌冨�惰�嗛��"><span>娌冨�惰�嗛��</span></a>-->
+                         <!--<a href="http://i.jstv.com/" target="_blank"><img src="http://static.jstv.com/ui/news/app_img6.png" alt="鑽旀灊绀惧尯"><span>鑽旀灊绀惧尯</span></a>-->
+                    </div>
+                </li>
+                <li class="last">
+                    <a href="http://www.jsbc.com/" class="txt" target="_blank">闆嗗洟缃�</a>
+                </li>
+                <li class="last">
+                    <a href="http://www.jstv.com/" class="txt">鑽旀灊缃�</a>
+                </li>
+            </ul>
+        </div> 
+        <div class="con fR">
+            <ul>
+                <li class="">
+                    <a href="#" class="txt" rel="nofollow"><i class="ico-sp ico-mail"></i>閭�绠� <i class="ico-sp ico-arr"></i></a>
+                    <div class="layer">
+                         <a rel="nofollow" href="http://mail.jstv.com/" target="_blank">闈炶瘹鐢峰槈瀹鹃偖绠�</a>
+                         <a rel="nofollow" href="https://mail.vip.jsbc.com/" target="_blank">VIP閭�绠�</a>
+                         <a rel="nofollow" href="http://mail.jstv.com/" target="_blank">JSTV閭�绠�</a>
+                         <a rel="nofollow" href="http://mail.jsbc.com/" target="_blank">JSBC閭�绠�</a>
+                    </div>
+                </li>
+                <li class="channel">
+                    <a href="#" class="txt" rel="nofollow"><i class="ico-sp ico-tv"></i>姹熻嫃鍗�瑙� <i class="ico-sp ico-arr"></i></a>
+                    <div class="layer">
+                         <a href="http://tv.jstv.com/star/" target="_blank">姹熻嫃鍗�瑙�</a>
+                         <a href="http://v.jstv.com/gg/" target="_blank">鍏�鍏辨柊闂�</a>
+                         <a href="http://v.jstv.com/cs/" target="_blank">姹熻嫃鍩庡競</a>
+                         <a href="http://v.jstv.com/zy/" target="_blank">姹熻嫃缁艰壓</a>
+                         <a href="http://v.jstv.com/ys/" target="_blank">姹熻嫃褰辫��</a>
+                         <a href="http://v.jstv.com/ym/" target="_blank">浼樻极鍗￠��</a>
+                         <a href="http://www.jetv.net/" target="_blank">姹熻嫃鏁欒偛</a>
+                         <a href="http://v.jstv.com/ty/" target="_blank">浣撹偛浼戦棽</a>
+                         <a href="http://jic.jsbc.com/" target="_blank">姹熻嫃鍥介檯</a>
+                         <a href="http://v.jstv.com/lz/" target="_blank">姹熻嫃闈撳��</a>
+                         <a href="http://live.jstv.com/?id=91" target="_blank">瀛︿範棰戦亾</a>
+                         <a href="http://tv.jstv.com/jsds/" target="_blank">姹熻嫃鍔ㄨ��</a>
+                         <a href="http://www.jstv.com/s/hxgw/" target="_blank">濂戒韩璐�鐗�</a>
+                         <a href="http://www.vojs.cn/" target="_blank">缃戠粶鐢靛彴</a>
+                    </div>
+                </li>
+                <li><a href="http://www.jstv.com/entry/baoming/" class="txt" target="_blank"><i class="ico-sp ico-sign"></i>鑺傜洰鎶ュ悕</a></li>
+                <li class="last"><a href="http://www.jsbc.com/host/index.shtml" class="txt" target="_blank"><i class="ico-sp ico-hoser"></i>涓绘寔浜�</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 椤堕儴骞垮憡 start-->
+<div class="adv " style=" width:1000px; margin:0 auto;">
+    <!-- PHPADM Start From PHPAD.CN -->
+    <!--鍐呭�归〉锛堟柊鐗堬級_椤堕儴閫氭爮-->
+    <script type='text/javascript' src='http://gp.jstv.com/static_files/zones/191/191.js'></script>
+    <!-- PHPADM End From PHPAD.CN -->
+</div>
+<!-- 椤堕儴骞垮憡 end-->
+<div class="nav clearfix J-nav">
+    <div class="main-nav clearfix">
+        <div class="wrap">
+            <a href="http://www.jstv.com/" class="logo fL"></a>
+            <div class="fL nav-bread">
+                <a href="http://www.jstv.com">棣栭〉</a><span> > </span><a href="/">鑽旀灊鏂伴椈</a><span> > </span><a href="/gn/">鍥藉唴</a>
+            </div>
+             <!--
+            <div class="search fR J-search-wrap">
+                
+                <input type="text">
+                <span class="btn">
+                    <a href="http://www.jstv.com" target="_blank"><i class="ico-sp ico-search"></i></a>
+                </span>
+                <div class="layer hide">
+                    <dl>
+                        <dt>姹熻嫃鍗�瑙�</dt>
+                        <dd class="multi">
+                            <p>
+                                <a class="tit" href="#"><em class="red">闈炶瘹鍕挎壈</em>鏈�鏂颁竴鏈�</a>
+                                <span class="time">5鏈�1鏃�  鏃堕暱锛�01:29:28</span>
+                            </p>
+                            <p>
+                                 <a class="tit" href="#"><em class="red">闈炶瘹鍕挎壈</em>鏈�鏂颁竴鏈�</a>
+                                <span class="time">5鏈�1鏃�  鏃堕暱锛�01:29:28</span>
+                            </p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>绀惧尯</dt>
+                        <dd>
+                           <p><a class="tit" href="#">缃戞皯瀵� <em class="red">闈炶瘹鍕挎壈</em>澶ц�ㄨ��</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>鍥剧墖</dt>
+                        <dd>
+                           <p><a class="tit" href="#"><em class="red">闈炶瘹鍕挎壈</em>楂樻竻鍥鹃泦</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>鏂伴椈</dt>
+                        <dd>
+                           <p><a class="tit" href="#"><em class="red">闈炶瘹鍕挎壈</em>鍒涙敹瑙嗘柊楂�</a></p>
+                        </dd>
+                    </dl>
+                    <a href="#" class="more">鏌ョ湅<em class="red">闈炶瘹鍕挎壈</em>鐨勬洿澶氭悳绱㈢粨鏋�</a>
+                </div>
+                
+            </div>
+         -->
+        </div>
+    </div>
+</div>
+
+    <div id="J_bodyBd" class="bd clearfix">
+        <div class="main fL">
+            <div class="article">
+                <h3>璀︽儠鏂板啝鐥呮瘨鈥滅墿浼犱汉鈥濓紝鏁欎綘杩欐牱闃茶寖</h3>
+                <h5></h5>
+                <div class="assist">
+                    <p class="info fL" style=" width:500px;"><span class="time">2020骞�11鏈�29鏃� 13:56:47 </span> | <span class="source">鏉ユ簮锛氱孩鏄熸柊闂�</span></p>
+                    <p id="J_adjustFontsize" class="adjust fR clearfix">
+                        <a class="bigger fL" href="javascript:void(0);"><span class="enable">瀛楀彿鍙樺ぇ</span></a><i class="fL">|</i>
+                        <a class="smaller fL" href="javascript:void(0);"><span class="enable">瀛楀彿鍙樺皬</span></a>
+                    </p>
+                </div>
+                <div class="content">
+                        <p style="text-align:center;">
+                                                                                </p>
+                        <p>銆�銆�<span>闅忕潃绉嬪啲瀛ｈ妭鍒版潵锛屽懠鍚搁亾浼犳煋鐥呰繘鍏ラ珮鍙戝�ｈ妭锛屾柊鍐犺偤鐐庣柅鎯呯殑鍙戠敓椋庨櫓涔熷ぇ澶у�炲姞銆傝繎鏃ワ紝鍥藉唴澶氬湴鎺ヨ繛鍑虹幇鏈�鍦版柊鍐犺偤鐐庣‘璇婄梾渚嬶紝鏂板啝鐥呮瘨&ldquo;鐗╀紶浜�&rdquo;鐨勭幇璞″紩鍙戝叕浼楀叧娉ㄣ�備粠鐜版湁鎶ラ亾鏉ョ湅锛屾�ょ被鎰熸煋澶氫负鎮ｈ�呮帴瑙︿簡琚�鏂板啝鐥呮瘨姹℃煋鐨勫喎閾鹃�熷搧鍙婂叾澶栧寘瑁呫�佸�冨�栭泦瑁呯�辩瓑鐗╁搧鎵�鑷达紝閭ｄ箞璇ュ�備綍棰勯槻杩欑被鎰熸煋鍛�锛�</span></p> <p cms-style="font-L">銆�銆�鎴愰兘鐤炬帶鍦ㄦ�ゆ彁閱掓偍锛氫负浜嗘偍鍜屽�朵汉鐨勫仴搴凤紝璇锋偍鍒囧嬁鏀炬澗璀︽儠锛岀户缁�鍋氬ソ涓�浜烘棩甯搁槻鎶わ紝娑堣垂鑰呰�佹�ｇ‘閫夎喘銆佸�勭悊鍜岄�熺敤鍐烽摼椋熷搧锛屽喎閾鹃�熷搧浠庝笟浜哄憳瑕佸姞寮哄伐浣滈槻鎶ゃ��</p> <p></p><p style="text-align:center;"><img src="https://n.sinaimg.cn/default/crawl/116/w550h366/20201129/fab5-kentcvy4498485.jpg" alt="" /></p><p cms-style="strong-Bold font-L">銆�<strong>銆�涓�銆佸喎閾鹃�熷搧鐨勯�夎喘</strong></p> <p cms-style="font-L">銆�銆�1銆� 瑕佸幓姝ｈ�勮秴甯傛垨甯傚満閫夎喘鍐烽摼椋熷搧锛岄�夎喘鏃舵�ｇ‘浣╂埓鍙ｇ僵銆�</p> <p cms-style="font-L">銆�銆�2銆� 閬垮厤寰掓墜鎺ヨЕ椋熷搧琛ㄩ潰锛屽缓璁�浣跨敤涓�娆℃�ф墜濂楁垨鎴栦娇鐢ㄤ竴娆℃�у�戞枡琚嬪弽濂椾綇鎵嬭繘琛屾寫閫夈��</p> <p cms-style="font-L">銆�銆�3銆� 鍏虫敞鐢熶骇鏃ユ湡銆佷繚璐ㄦ湡銆佸偍瀛樻潯浠剁瓑椋熷搧鏍囩�惧唴瀹癸紝浠ュ強浜у湴銆佹潵婧愩�佽繘鍙ｉ�熷搧妫�鐤�绛夌浉鍏充俊鎭�锛屼笉瑕侀噰璐�娌℃湁鏄庣‘鏉ユ簮淇℃伅鐨勫喎閾鹃�熷搧銆�</p> <p cms-style="font-L">銆�銆�4銆� 璐�鐗╁悗鍙婃椂鐢ㄨ偉鐨傛垨娲楁墜娑叉礂鎵嬶紝娲楁墜鍓嶄笉瑙︾�板彛銆侀蓟銆佺溂绛夐儴浣嶃��</p> <p cms-style="font-L">銆�銆�5銆� 濡傛灉鏄�閫氳繃娴锋窐銆佷唬璐�绛夋笭閬撹喘涔帮紝鍖呰�呰〃闈�涓�瀹氳�佸仛濂芥秷姣掑�勭悊锛屽�勭悊鏃跺仛濂介槻鎶ゃ��</p> <p></p><p style="text-align:center;"><img src="https://n.sinaimg.cn/default/crawl/300/w550h550/20201129/caf7-kentcvy4498530.jpg" alt="" /></p><p cms-style="strong-Bold font-L">銆�<strong>銆�浜屻�佸喎閾鹃�熷搧鐨勬竻娲楀姞宸�</strong></p> <p cms-style="font-L">銆�銆�1銆� 鍘ㄦ埧瑕佷繚鎸佹竻娲佸拰閫氶�庯紝鎺ヨЕ鍐烽摼椋熷搧鍓嶅悗瑕佹礂鎵嬨��</p> <p cms-style="font-L">銆�銆�2銆� 鍔犲伐杩囩▼瑕佸仛鍒扮敓鐔熷垎寮�锛屽�勭悊鍐烽摼椋熷搧鎵�鐢ㄧ殑鐩嗐�佸垁鍏峰拰鐮ф澘绛夊櫒鍏疯�佸強鏃舵竻娲楋紝娓呮礂鏃堕槻姝㈤�炴簠銆�</p> <p></p><p style="text-align:center;"><img src="https://n.sinaimg.cn/default/crawl/300/w550h550/20201129/18b4-kentcvy4498576.png" alt="" /></p><p cms-style="font-L">銆�銆�3銆� 鍔犲伐瀹屾垚鍚庡�圭幆澧冦�佸帹鎴垮彴闈㈢瓑鐗╀綋琛ㄩ潰杩涜�屾竻娲佸拰娑堟瘨銆�</p> <p></p><p style="text-align:center;"><img src="https://n.sinaimg.cn/default/crawl/300/w550h550/20201129/1d85-kentcvy4498632.png" alt="" /></p><p cms-style="font-L">銆�銆�4銆� 鍙婃椂鏀堕泦椋熺墿娈嬫福锛屽苟鏀惧湪鍗曠嫭鐨勫瀮鍦捐�嬩腑涓㈠純銆�</p> <p cms-style="font-L">銆�銆�5銆� 鍐烽摼椋熷搧淇濆瓨浜庡啺绠卞喎鍐诲�わ紝涓嶈�佸瓨鏀捐繃闀挎椂闂达紝娉ㄦ剰涓庣啛椋熷垎灞傚瓨鏀俱��</p> <p cms-style="strong-Bold font-L">銆�銆�<strong>涓夈�佸喎閾鹃�熷搧鐨勭児璋冮�熺敤</strong></p> <p cms-style="font-L">銆�銆�1銆� 鍔犲伐鐑硅皟鍐烽摼椋熷搧鏃讹紝瑕佷繚璇佺儳鐔熺叜閫忋��</p> <p></p><p style="text-align:center;"><img src="https://n.sinaimg.cn/default/crawl/166/w483h483/20201129/7889-kentcvy4498684.jpg" alt="" /></p><p cms-style="font-L">銆�銆�2銆� 灏介噺閬垮厤鐢熷悆銆佸崐鐢熷悆銆侀厭娉°�侀唻娉℃垨鐩愯厡鍚庣洿鎺ラ�熺敤銆�</p> <p cms-style="font-L">銆�銆�3銆� 涓や汉鍙婁互涓婂叡鍚屽氨椁愭椂锛岃�佷娇鐢ㄥ叕绛枫�佸叕鍕猴紝鍑忓皯浜ゅ弶鎰熸煋銆�</p> <p></p><p style="text-align:center;"><img src="https://n.sinaimg.cn/default/crawl/300/w550h550/20201129/fbf2-kentcvy4498722.png" alt="" /></p><p cms-style="font-L">銆�銆�4銆� 鏈�椋熺敤瀹岀殑閮ㄥ垎璇峰喎钘忎繚瀛橈紝灏芥棭椋熺敤锛屽啀椋熺敤鍓嶄竴瀹氳�佸厖鍒嗗姞鐑�銆�</p> <p cms-style="strong-Bold font-L">銆�<strong>銆�鍥涖�佸喎閾鹃�熷搧浠庝笟浜哄憳鐨勯槻鎶�</strong></p> <p cms-style="font-L">銆�銆�1銆� 浠庝笟浜哄憳瑕佸仛濂藉仴搴风洃娴嬶紝涓嶅甫鐥呬笂宀楋紝涓婂矖鍓嶉厤鍚堟帴鍙椾綋娓╂��娴嬶紝蹇呰�佹椂閰嶅悎鎺ュ彈鏍搁吀绛涙煡銆�</p> <p cms-style="font-L">銆�銆�2銆� 瑁呭嵏鎼�杩愬伐绛夊弽澶嶆帴瑙﹁繘鍙ｅ喎閾鹃�熷搧鐨勯珮椋庨櫓浜虹兢锛屼笂宀楀墠涓�瀹氳�佺┛鎴村ソ宸ヤ綔琛ｅ附锛屾埓濂戒竴娆℃�у尰鐢ㄥ彛缃┿�佹墜濂楋紝蹇呰�佹椂杩樿�佷僵鎴存姢鐩�闀滃拰闈㈠睆銆�</p> <p></p><p style="text-align:center;"><img src="https://n.sinaimg.cn/default/crawl/300/w550h550/20201129/3d2a-kentcvy4498743.jpg" alt="" /></p><p cms-style="font-L">銆�銆�3銆� 鏁翠釜鎼�杩愯繃绋嬩腑瑕侀槻姝㈢毊鑲ょ洿鎺ユ帴瑙﹀喎閾剧墿鍝佽〃闈�锛屼竴鏃﹀嚭鐜扮洿鎺ユ帴瑙︼紝瑕佺珛鍗冲仠姝㈠伐浣滃苟杩涜�屾秷姣掑�勭悊锛屾惉杩愮粨鏉熷悗鍙婃椂娲楁墜娑堟瘨銆�</p> <p cms-style="font-L">銆�銆�4銆� 濡傞亣鍖呰�呯牬鎹燂紝瑕佺珛鍗冲�规暎钀介�熷搧杩涜�屽洖鏀跺�勭悊锛屽苟瀵规薄鏌撶殑鐜�澧冨強鐗╀綋琛ㄩ潰杩涜�屾秷姣掋��</p> <p></p><p style="text-align:center;"><img src="https://n.sinaimg.cn/default/crawl/300/w550h550/20201129/8f69-kentcvy4498776.png" alt="" /></p><p cms-style="font-L">銆�銆�5銆� 鍦ㄦ病鏈夎劚鎺夊伐浣滄湇鍜屾礂鎵嬫秷姣掍箣鍓嶏紝涓嶈�佽Е纰板彛銆侀蓟銆佺溂绛夐儴浣嶃��</p> <p cms-style="font-L">銆�銆�鏈�鍚庯紝璇锋偍鏃跺埢淇濇寔闃叉姢鎰忚瘑锛岀户缁�鍋氬ソ鎴村彛缃┿�佸嫟娲楁墜銆佸�氶�氶�庛�佸皯鑱氶泦銆佷繚鎸佸畨鍏ㄧぞ浜よ窛绂荤瓑涓�浜洪槻鎶ゆ帾鏂斤紝鍋ュ仴搴峰悍杩囩�嬪啲銆�</p>
+                </div>
+				<section class="vote" style="display:none;">
+					<header>
+						<span>鎶曠エ</span>
+						<span></span>
+					</header>
+					<section class="voteContent">
+						<h3></h3></br>
+						<ul>
+						</ul>
+						<img src="http://static.jstv.com/ui/litchinews/images/submit-btn.png" class="submit" id="submitBtn" style="width:28%"/>
+					</section>
+				</section>
+                <div class="pagination">
+                    <div class="page">
+                                                            </div>
+                </div>
+                <div class="code-box">
+                    <div class="img-wrapper">
+                        <img src="http://static.jstv.com/ui/jstv/images/yc_code_01.png" alt=""/>
+                    </div>
+                    <p class="name"><span>涓嬭浇鑽旀灊鏂伴椈APP瀹㈡埛绔�锛岄殢鏃堕殢鍦扮湅鏂伴椈锛�</span></p>
+                </div>
+                <div class="J-share share-box" data-id="" data-title="璀︽儠鏂板啝鐥呮瘨鈥滅墿浼犱汉鈥濓紝鏁欎綘杩欐牱闃茶寖" data-summary="" data-pic="http://static.jstv.com/img/2020/11/29/202011291606629560601_15000.jpg" data-url="http://news.jstv.com/a/20201129/1606629502561.shtml">
+                    <ul class="clearfix">
+                        <li class="weibo-share" data-name="sinaminiblog"><a rel="nofollow" href="javascript:void(0);"></a><span>鏂版氮寰�鍗�</span></li>
+                        <li class="friend-share" data-name="weixin"><a rel="nofollow" href="javascript:void(0);"></a><span>寰�淇℃湅鍙嬪湀</span></li>
+                        <li class="weixin-share" data-name="weixin"><a rel="nofollow" href="javascript:void(0);"></a><span>寰�淇″ソ鍙�</span></li>
+                        <li class="qzone-share" data-name="qzone"><a rel="nofollow" href="javascript:void(0);"></a><span>QQ绌洪棿</span></li>
+                        <!--<li class="like-share" data-name="like"><a rel="nofollow" href="javascript:void(0);"></a><span>253</span></li>-->
+                    </ul>
+                    <div class="weixin-layer hide">
+                        <img alt="" src="">
+                        <i class="ico-arr"></i>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="related">
+                <h4 class="clearfix"><p class="t fL">鐩稿叧鏂伴椈</p><a class="change fR clearfix" href="javascript:void(0);"><i class="fL">icon</i>鎹�涓�鎹�</a></h4>
+                <ul class="mix-list">
+                    <li>
+                        <p class="tit"><a href="#" target="_blank">骞垮窞娆茶烦妗ョ敺瀛愬凡鍦ㄦˉ涓婂緟63灏忔椂濂宠�﹀姖璇�</a></p>
+                        <div class="clearfix">
+                            <a class="img fL" href="#" target="_blank"><img src="http://d5.sina.com.cn/201506/25/1056236.jpg" alt=""/></a>
+                            <p class="word fR">浜嬩欢璧蜂簬鏄ㄥぉ涓�鍗堬紝澶ч噺淇勭綏鏂�娓稿�㈢柉鐙傜粏鑺備簡鍗椾含澶�瀛愬簷鐨勫皬鍗栭儴锛岄�犳垚浜鸿吙閮ㄤ弗閲嶉�ㄦ姌锛屽皬鍗栭儴鎴挎�佽��鍘嬫柇銆�"鍒颁腑澶�宸ヤ綔浠ュ悗锛屾病澶氫箙鎴戝幓杩囦竴娆″悏鏋楋紝璁板繂鐘规柊浣垮悏鏋椾唬琛ㄥ洟鍏ㄤ綋浠ｈ〃濡傛矏鏄ラ�庢挙绂荤殑鏁戞彺杞﹁締鍐嶆�¤繑鍥炰竴杈嗘秷闃蹭簯姊�杞︽惌涔�2鍚嶆晳鎻翠汉鍛樹笂鍗�...<a class="more" href="#" target="_blank">[璇︾粏]</a><span class="time fR">1灏忔椂鍓�</span></p>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <p class="tit"><a href="#" target="_blank">骞垮窞娆茶烦妗ョ敺瀛愬凡鍦ㄦˉ涓婂緟63灏忔椂濂宠�﹀姖璇�</a></p>
+                        <p>浜嬩欢璧蜂簬鏄ㄥぉ涓�鍗堬紝澶ч噺淇勭綏鏂�娓稿�㈢柉鐙傜粏鑺備簡鍗椾含澶�瀛愬簷鐨勫皬鍗栭儴锛岄�犳垚浜鸿吙閮ㄤ弗閲嶉�ㄦ姌锛屽皬鍗栭儴鎴挎�佽��鍘嬫柇銆�"鍒颁腑澶�宸ヤ綔浠ュ悗锛屾病澶氫箙鎴戝幓杩囦竴娆″悏鏋楋紝璁板繂鐘规柊浣垮悏鏋椾唬琛ㄥ洟鍏ㄤ綋浠ｈ〃濡傛矏鏄ラ�庢挙绂荤殑鏁戞彺杞﹁締鍐嶆�¤繑鍥炰竴杈嗘秷闃蹭簯姊�杞︽惌涔�2鍚嶆晳鎻翠汉鍛樹笂鍗�...<a class="more" href="#" target="_blank">[璇︾粏]</a><span class="time fR">2015-11-12</span></p>
+                    </li>
+                    <li>
+                        <p class="tit"><a href="#" target="_blank">骞垮窞娆茶烦妗ョ敺瀛愬凡鍦ㄦˉ涓婂緟63灏忔椂濂宠�﹀姖璇�</a></p>
+                        <p>浜嬩欢璧蜂簬鏄ㄥぉ涓�鍗堬紝澶ч噺淇勭綏鏂�娓稿�㈢柉鐙傜粏鑺備簡鍗椾含澶�瀛愬簷鐨勫皬鍗栭儴锛岄�犳垚浜鸿吙閮ㄤ弗閲嶉�ㄦ姌锛屽皬鍗栭儴鎴挎�佽��鍘嬫柇銆�"鍒颁腑澶�宸ヤ綔浠ュ悗锛屾病澶氫箙鎴戝幓杩囦竴娆″悏鏋楋紝璁板繂鐘规柊浣垮悏鏋椾唬琛ㄥ洟鍏ㄤ綋浠ｈ〃濡傛矏鏄ラ�庢挙绂荤殑鏁戞彺杞﹁締鍐嶆�¤繑鍥炰竴杈嗘秷闃蹭簯姊�杞︽惌涔�2鍚嶆晳鎻翠汉鍛樹笂鍗�...<a class="more" href="#" target="_blank">[璇︾粏]</a><span class="time fR">2015-11-12</span></p>
+                    </li>
+                </ul>
+            </div>
+            -->
+        </div>
+        <div class="sidebar fR">
+            <div class="con">
+                <h4 class="clearfix"><p class="t fL">浠婃棩鑱氱劍</p></h4>
+                                 <ul class="pic-list clearfix">
+                                      <li class="fL">
+                        <a href="http://news.jstv.com/a/20201129/1606628252158.shtml" target="_blank"><img src="http://static.jstv.com/img/2020/11/29/202011291606628156786_15000.jpg"/></a>
+                        <a href="http://news.jstv.com/a/20201129/1606628252158.shtml" target="_blank" title="鏈堢悆浼犳潵涓�灏佸枩璁�锛屽ス鎷戒綇浜嗗ス锛�">鏈堢悆浼犳潵涓�灏佸枩璁�锛屽ス鎷戒綇浜嗗ス锛�</a>
+                    </li>
+                                      <li class="fL">
+                        <a href="http://news.jstv.com/a/20201129/1606623123663.shtml" target="_blank"><img src="http://static.jstv.com/img/2020/11/29/202011291606624392044_15000.jpg"/></a>
+                        <a href="http://news.jstv.com/a/20201129/1606623123663.shtml" target="_blank" title="閲嶅簡2600浣欏悕鐩稿叧浜哄憳鏍搁吀妫�娴嬩负闃存��">閲嶅簡2600浣欏悕鐩稿叧浜哄憳鏍搁吀妫�娴嬩负闃存��</a>
+                    </li>
+                                      <li class="fL">
+                        <a href="http://news.jstv.com/a/20201129/1606619088669.shtml" target="_blank"><img src="http://static.jstv.com/img/2020/11/29/202011291606619086697_15000.jpg"/></a>
+                        <a href="http://news.jstv.com/a/20201129/1606619088669.shtml" target="_blank" title="鑸�澶╀簲闄㈠洖淇″�﹀ē浜斿彿锛氱�堢シ鏈堟梾鍦嗘弧">鑸�澶╀簲闄㈠洖淇″�﹀ē浜斿彿锛氱�堢シ鏈堟梾鍦嗘弧</a>
+                    </li>
+                                      <li class="fL">
+                        <a href="http://news.jstv.com/a/20201129/1606629778447.shtml" target="_blank"><img src="http://static.jstv.com/img/2020/11/29/202011291606629841603_15000.jpg"/></a>
+                        <a href="http://news.jstv.com/a/20201129/1606629778447.shtml" target="_blank" title="搴勬渤涓�杩涘彛鍐峰喕槌曢奔澶栧寘瑁呮柊鍐犳��娴嬮槼鎬�">搴勬渤涓�杩涘彛鍐峰喕槌曢奔澶栧寘瑁呮柊鍐犳��娴嬮槼鎬�</a>
+                    </li>
+                                  </ul>
+            </div>
+            <div class="con ads">
+              <!-- PHPADM Start From PHPAD.CN -->
+              <!--鍐呭�归〉锛堟柊鐗堬級_鎸夐挳1-->
+              <script type='text/javascript' src='http://gp.jstv.com/static_files/zones/192/192.js'></script>
+              <!-- PHPADM End From PHPAD.CN -->
+            </div>
+                        <div class="con">
+                <h4 class="clearfix"><p class="t fL">鏂伴椈鎺掕��</p></h4>
+                <ul class="link-list">
+                                                            <li class="n01"><i>1</i><a href="http://news.jstv.com/a/20201129/1606628252158.shtml" target="_blank">鏈堢悆浼犳潵涓�灏佸枩璁�锛屽ス鎷戒綇浜嗗ス锛�</a></li>
+                                                            <li class="n02"><i>2</i><a href="http://news.jstv.com/a/20201129/1606628601370.shtml" target="_blank">涓佺湡甯︾伀鈥滈殣涓栧ぉ鍫傗�濈悊濉橈紝鎼滅储閲忓ぇ娑�620%</a></li>
+                                                            <li class="n03"><i>3</i><a href="http://news.jstv.com/a/20201129/16066284851000.shtml" target="_blank">鍗楁槍鑸�绌哄ぇ瀛︽竻閫�21鍚嶁�滆秴闄愨�濆�︾敓</a></li>
+                                                            <li><i>4</i><a href="http://news.jstv.com/a/20201129/1606626183915.shtml" target="_blank">鏃呭姞澶х唺鐚�鈥滃ぇ姣涒�濆拰鈥滀簩椤衡�濋『鍒╁洖瀹�</a></li>
+                                                            <li><i>5</i><a href="http://news.jstv.com/a/20201129/1606618950801.shtml" target="_blank">澶�瑙嗙儹璇勶細鍏虫敞涓佺湡 涓嶅彧鏄�鍥犱负浠栫殑楂橀�滃��</a></li>
+                                    </ul>
+            </div>
+        </div>
+        <div class="handle">
+            <div class="review">
+                                 <a id="J_nextBtn" class="next" href="/a/20201129/1606628601370.shtml" title="涓佺湡甯︾伀鈥滈殣涓栧ぉ鍫傗�濈悊濉橈紝鎼滅储閲忓ぇ娑�620%" target="_self">涓嬩竴绡�</a>            </div>
+            <ul id="J_toolbar" class="toolbar">
+                <li class="share-btn clearfix">
+                    <p class="fL">
+                        <i class="air-b">layer</i>
+                        <i class="air-d">鍒嗕韩</i>
+                    </p>
+                    <i class="icon fR">icon</i>
+                </li>
+                <li class="comment-btn clearfix">
+                    <p class="fL">
+                        <i class="air-b">layer</i>
+                        <i class="air-d"><a href="http://news.jstv.com/a/20201129/1606629502561.shtml#SOHUCS" style="color:#FFF;">璇勮��</a></i>
+                    </p>
+                    <i class="icon fR">icon</i>
+                </li>
+                <li class="gotop-btn clearfix">
+                    <p class="fL">
+                        <i class="air-b">layer</i>
+                        <i class="air-d">缃�椤�</i>
+                    </p>
+                    <i class="icon fR">icon</i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+<!-- footer start -->
+<div class="footer">
+    <div class="footer-con clearfix wrap">
+        <ul>
+            <li>
+                <h4><a href="http://www.jstv.com/db/" target="_blank">鑽旀灊瑙嗛��</a></h4>
+                <p>
+                    <a href="http://star.jstv.com/" target="_blank">缁艰壓鑺傜洰</a>
+                    <!--<a href="http://www.jstv.com/c/webvideo/" target="_blank">鑽旀灊鍑哄搧</a>-->
+                    <a href="http://tv.jstv.com/news/" target="_blank">瑙嗛�戞柊闂�</a>
+                    <a rel="nofollow" href="http://hudong.jstv.com/litchicomment/advise.html" target="_blank">鎰忚�佸缓璁�</a>
+                </p>
+            </li>
+             <li>
+                <h4><a href="http://news.jstv.com/" target="_blank">鑽旀灊鏂伴椈</a></h4>
+                <p>
+                    <a href="http://news.jstv.com/js/" target="_blank">姹熻嫃</a>
+                    <a href="http://news.jstv.com/zxc/" target="_blank">鍦ㄧ幇鍦�</a>
+                    <a href="http://news.jstv.com/gn/" target="_blank">鍥藉唴</a>
+                    <a href="http://news.jstv.com/sh/" target="_blank">绀句細</a>
+                    <a href="http://www.jstv.com/topic/" target="_blank">涓撴爮</a>
+                    <a href="http://photo.jstv.com/" target="_blank">鍥鹃泦</a>
+                    <a href="http://news.jstv.com/jsh/" target="_blank">鍐涗簨</a>
+                    <!--<a href="http://auto.jstv.com/" target="_blank">姹借溅</a>-->
+                    <a href="http://finance.jstv.com/" target="_blank">璐㈢粡</a>
+                </p>
+            </li>
+           <!--
+             <li>
+                <h4><a href="http://i.jstv.com/" target="_blank">鑽旀灊绀惧尯</a></h4>
+                <p>
+                    <a href="http://i.jstv.com/index.php?app=weiba&mod=Index&act=index" target="_blank">鐑�闂ㄨ瘽棰�</a>
+                    <a href="http://i.jstv.com/weiba/weibalist" target="_blank">鎺ㄨ崘鍦堝瓙</a>
+                    <a href="http://i.jstv.com/app/event" target="_blank">绮鹃�夋椿鍔�</a>
+                    <a href="http://i.jstv.com/weiba/189" target="_blank">鍙板墠骞曞悗</a>
+                    <a href="http://i.jstv.com/weiba/90" target="_blank">閮藉競鐢熸椿</a>
+                </p>
+            </li>
+            -->
+             <li>
+                <h4><a href="http://www.jstv.com/n/gdw/ad/" target="_blank">鍏充簬鎴戜滑</a></h4>
+                <p>
+                    <a rel="nofollow" href="http://weibo.com/p/1002061796087453/home?from=page_100206&mod=TAB#place" target="_blank">鏂版氮寰�鍗�</a>
+                    <a rel="nofollow" href="http://t.qq.com/jstvjstv?preview" target="_blank">鑵捐��寰�鍗�</a>
+                    <!--<a href="#">寰�淇″叕浼楀彿</a>-->
+                    <a href="http://www.jsbc.com/" target="_blank">鎬诲彴瀹樼綉</a>
+                </p>
+            </li>
+             <li>
+                <h4><a href="#">浜у搧闆嗙兢</a></h4>
+                <p>
+                    <a href="http://www.jstv.com/s/lzxw5/" target="_blank">鑽旀灊鏂伴椈</a>
+                    <a href="http://www.ourjiangsu.com/app/download/pc.html" target="_blank">鎴戣嫃</a>
+                    <!--<a href="http://www.jstv.com/mobile/platform/index.shtml#a_wxjs" target="_blank">鏃犵嚎姹熻嫃</a>-->
+                    <!--<a href="http://www.jstv.com/mobile/cjsjt/">澶╃考闀挎睙</a>-->
+                    <!--<a href="http://www.jstv.com/wojia/download/" target="_blank">娌冨�惰�嗛��</a>-->
+                    <!--<a href="http://i.jstv.com/" target="_blank">鑽旀灊绀惧尯</a>-->
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p><a href="http://www.jstv.com/n/gdw/ad/" target="_blank">鍏充簬鎴戜滑</a>|<a href="http://www.jstv.com/n/gdw/aboutus/" target="_blank">缃戠珯浠嬬粛</a>|<a href="http://www.jsbc.com/" target="_blank">闆嗗洟缃�</a>|<a href="http://www.jstv.com/n/gdw/services/" target="_blank">浜у搧涓庢湇鍔�</a>|<a href="http://www.jstv.com/n/gdw/ad/" target="_blank">骞垮憡鏈嶅姟</a>|<a href="http://www.jstv.com/n/gdw/webmap/" target="_blank">缃戠珯鍦板浘</a><a href="http://www.jstv.com/n/gdw/union/" target="_blank">鍙嬫儏閾炬帴</a></p>
+        <p class="mt20">
+		<a rel="nofollow" href="http://static.jstv.com/ui/jstv/images/xkz2018.jpg" target="_blank">浜掕仈缃戞柊闂讳俊鎭�鏈嶅姟璁稿彲璇侊細32120170003</a> 
+		<a rel="nofollow" href="http://www.beian.miit.gov.cn/" target="_blank">鑻廔CP澶�07025745鍙�-1</a>  
+		 <a rel="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010202010067" target="_blank"> <img src="http://static.jstv.com/ui/jstv/images/bata.png"> 鍏�瀹夊�囨�堝彿锛�32010202010067</a>
+		<a rel="nofollow" href="http://static.jstv.com/ui/jstv/images/stjm.jpg" target="_blank">淇℃伅缃戠粶浼犳挱瑙嗗惉鑺傜洰璁稿彲璇佸彿锛�1003036</a>
+		</p>
+        <!--<p> 鏈�缃戔�滄亱绔ョ櫀鈥濈瓑娑夊効绔ヨ壊鎯呬俊鎭�涓炬姤  閭�绠憋細jubao@vip.jsbc.com  24灏忔椂涓炬姤鐢佃瘽:锛�025锛�83187908</p>-->
+        <p>杩濇硶鍜屼笉鑹�淇℃伅涓炬姤鐢佃瘽锛氾紙025锛�83187024 <a href="http://www.12377.cn" target="_blank" style="color:#888888;">涓�鍥戒簰鑱旂綉涓炬姤涓�蹇�</a> 涓炬姤閭�绠憋細litchi@vip.jsbc.com<a href="http://static.jstv.com/ui/jstv/images/cns.jpg" target="_blank" style="color:#888888;">璺熷笘璇勮�鸿嚜寰嬬�＄悊鎵胯�轰功</a><a href="http://www.12377.cn/node_548446.htm" target="_blank" style="color:#888888;">缃戠粶涓炬姤APP涓嬭浇</a></p>
+        <p>Copyrights 2009銆�姹熻嫃鐪佸箍鎾�鐢佃�嗘�诲彴鐗堟潈鎵�鏈�</p>
+    </div>
+</div>
+<!-- footer end -->
+
+    <!-- 鍒嗕韩娴�灞� start -->
+    <div class="mask-body hide">layer</div>
+    <div class="share-layer hide">
+        <div class="J-share share-box"  data-id="" data-url="http://news.jstv.com/a/20201129/1606629502561.shtml" data-title="璀︽儠鏂板啝鐥呮瘨鈥滅墿浼犱汉鈥濓紝鏁欎綘杩欐牱闃茶寖" data-summary="" data-pic="http://static.jstv.com/img/2020/11/29/202011291606629560601_15000.jpg">
+            <span class="title">蹇�涔愬垎浜�</span>
+            <ul class="clearfix">
+                <li class="weibo-share" data-name="sinaminiblog"><a rel="nofollow" href="javascript:void(0);"></a><span>鏂版氮寰�鍗�</span></li>
+                <li class="friend-share" data-name="weixin"><a rel="nofollow" href="javascript:void(0);"></a><span>寰�淇℃湅鍙嬪湀</span></li>
+                <li class="weixin-share" data-name="weixin"><a rel="nofollow" href="javascript:void(0);"></a><span>寰�淇″ソ鍙�</span></li>
+                <li class="qzone-share" data-name="qzone"><a rel="nofollow" href="javascript:void(0);"></a><span>QQ绌洪棿</span></li>
+                <!--<li class="like-share" data-name="like"><a rel="nofollow" href="javascript:void(0);"></a><span>253</span></li>-->
+            </ul>
+            <div class="weixin-layer">
+                <img src="" alt="">
+                <i class="ico-arr"></i>
+            </div>
+        </div>
+        <a href="javascript:void(0);" class="close"></a>
+    </div>
+    <!-- 鍒嗕韩娴�灞� end -->
+
+   <script src="http://static.jstv.com/ui/common/js/audioplayer_detail.js"></script> 
+    <script type="text/javascript" src="http://static.jstv.com/ui/common/js/common.js"></script>
+    <script type="text/javascript" src="http://static.jstv.com/ui/jstv/js/article.js"></script>
+    <!-- pinglun begin -->
+    <script type="text/javascript">
+    var _config = { categoryId : '31380.1444879038'};
+
+	$(function(){
+        //璁块棶缁熻�� wangchao
+        $.post("http://wapapi-litchi.jstv.com/FootRead", {
+            G: 27942420,
+            T:1
+        },function (data) {
+
+        });
+        //audio player鏇挎崲
+        if(document.getElementsByTagName("audio").length>0){
+        $.getScript("http://static.jstv.com/ui/litchinews/v5/audio.player.pc.js", function () {});
+        }
+        
+		var id=27942420;//鏂囩珷婧恑d
+		var idVote=0;//瑙嗛�戞挱鏀惧櫒鍜屽浘闆嗙殑id
+		var hasVoted = parseInt($.cookie("hasVoted"+id+idVote));
+		//鎶曠エ鎺ュ彛
+        var optionsArr=[],votesNum=[],sumCount=0;
+        if(idVote){
+            $(".vote").css("display","block");
+            $.post("http://news.jstv.com/api/RichArticle/Vote/"+id,function(data){
+                if(!data.ResultCode){
+                    sumCount=data.Data.VoteCount;
+                    for(var attr in data.Data){
+                        if(attr=="MyOption1" && data.Data.MyOption1!=""){
+                            optionsArr.push(data.Data.MyOption1);
+                            votesNum.push(data.Data.Option1Count);
+                        }
+                        if(attr=="MyOption2" && data.Data.MyOption2!=""){
+                            optionsArr.push(data.Data.MyOption2);
+                            votesNum.push(data.Data.Option2Count);
+                        }
+                        if(attr=="MyOption3" && data.Data.MyOption3!=""){
+                            optionsArr.push(data.Data.MyOption3);
+                            votesNum.push(data.Data.Option3Count);
+                        }
+                        if(attr=="MyOption4" && data.Data.MyOption4!=""){
+                            optionsArr.push(data.Data.MyOption4);
+                            votesNum.push(data.Data.Option4Count);
+                        }
+                        if(attr=="MyOption5" && data.Data.MyOption5!=""){
+                            optionsArr.push(data.Data.MyOption5);
+                            votesNum.push(data.Data.Option5Count);
+                        }
+                        if(attr=="MyOption6" && data.Data.MyOption6!=""){
+                            optionsArr.push(data.Data.MyOption6);
+                            votesNum.push(data.Data.Option6Count);
+                        }
+                        if(attr=="MyOption7" && data.Data.MyOption7!=""){
+                            optionsArr.push(data.Data.MyOption7);
+                            votesNum.push(data.Data.Option7Count);
+                        }
+                        if(attr=="MyOption8" && data.Data.MyOption8!=""){
+                            optionsArr.push(data.Data.MyOption8);
+                            votesNum.push(data.Data.Option8Count);
+                        }
+                        if(attr=="MyOption9" && data.Data.MyOption9!=""){
+                            optionsArr.push(data.Data.MyOption9);
+                            votesNum.push(data.Data.Option9Count);
+                        }
+                        if(attr=="MyOption10" && data.Data.MyOption10!=""){
+                            optionsArr.push(data.Data.MyOption10);
+                            votesNum.push(data.Data.Option10Count);
+                        }
+                        if(attr=="MyOption11" && data.Data.MyOption11!=""){
+                            optionsArr.push(data.Data.MyOption11);
+                            votesNum.push(data.Data.Option11Count);
+                        }
+                        if(attr=="MyOption12" && data.Data.MyOption12!=""){
+                            optionsArr.push(data.Data.MyOption12);
+                            votesNum.push(data.Data.Option12Count);
+                        }
+                    }
+                    $(".vote>header>span").eq(1).html(sumCount+"浜哄弬涓�");
+                    $(".voteContent>h3").html(data.Data.Title);
+                    if(hasVoted == ""+id+idVote){
+                        //$(".voteContent>h3,.voteContent>ul,#submitBtn").remove();//娓呯┖
+                        $(".voteContent>ul,#submitBtn").remove();
+                        var votesSum=0,percentSum=0;//鑾峰彇鎬荤殑鎶曠エ鏁�
+                        for(var n=0;n<votesNum.length;n++){
+                            votesSum+=votesNum[n];
+                        }
+                        for(var i=0;i<optionsArr.length;i++){
+                            //閫夐」optionsArr
+                            //鎶曠エ鏁皏otesNum
+                            //褰撳墠鐨刾ercent
+                            if(i<optionsArr.length-1){
+                                console.log(votesNum[i]);
+                                console.log(votesSum);
+                                var percent = parseInt(votesNum[i]/votesSum*100);
+                                console.log(percent);
+                                $(".voteContent").append('<div class="result-per">\
+						<p>'+(i+1)+'銆�'+optionsArr[i]+'</p>\
+						<div class="progress">\
+							<div class="rltprogress-inner" style="width:'+percent+'%;"></div>\
+							<span class="percentNum">'+percent+'%</span>\
+						</div>\
+					</div>');
+                                percentSum+=percent;
+                            }
+                            if(i==(optionsArr.length-1)){//鏈�鍚庝竴椤�
+                                $(".voteContent").append('<div class="result-per">\
+						<p>'+(i+1)+'銆�'+optionsArr[i]+'</p>\
+						<div class="progress">\
+							<div class="rltprogress-inner" style="width:'+(100-percentSum)+'%;"></div>\
+							<span class="percentNum">'+(100-percentSum)+'%</span>\
+						</div>\
+					</div>');
+                            }
+                        }
+                    }else{
+                        for(var i=0;i<optionsArr.length;i++){
+                            $(".voteContent>ul").append("<li>"+optionsArr[i]+"</li>");
+                        }
+                    }
+                    if(data.Data.LorM=="鍗曢��"){
+                        $(".voteContent li").click(function(){
+                            $(".voteContent li").removeClass("selected");
+                            $(this).addClass("selected");
+                        });
+                    }else if(data.Data.LorM=="澶氶��"){
+                        $(".voteContent li").click(function(){
+                            if($(this).hasClass("selected")){
+                                $(this).removeClass("selected");
+                            }else{
+                                $(this).addClass("selected");
+                            }
+                        });
+                    }
+
+                }else{
+                    //alert(data.Message);
+                    $(".vote").css("display","none");
+                }
+            },"json");
+        }
+        else{
+            $(".vote").css("display","none");
+        }
+		
+		$("#submitBtn").click(function(){
+            var ans= [];//鐐硅禐鐨勯�夐」鐨勪綅缃�
+            var selectedIndex = $(".voteContent li.selected");
+            for(var i=0;i<selectedIndex.length;i++){
+                ans.push(selectedIndex.eq(i).index()+1);
+                votesNum[selectedIndex.eq(i).index()]++;
+            }
+            console.log(votesNum);//閫変腑鍚庢彁浜ゅ悗鏀瑰彉鐨勬姇绁ㄦ暟
+            if(ans.length!=0){
+                $.ajax({
+                    url:"http://news.jstv.com/api/vote",
+                    success:function(data){
+                        $.cookie("hasVoted"+id+idVote,""+id+idVote);
+                        if(data.ResultCode==0){
+                            $(".vote>header>span").eq(1).html((sumCount+1)+"浜哄弬涓�");
+                            $(".voteContent>ul,#submitBtn").remove();//娓呯┖
+                            var votesSum=0,percentSum=0;//鑾峰彇鎬荤殑鎶曠エ鏁�
+                            for(var n=0;n<votesNum.length;n++){
+                                votesSum+=votesNum[n];
+                            }
+                            for(var i=0;i<optionsArr.length;i++){
+                                //閫夐」optionsArr
+                                //鎶曠エ鏁皏otesNum
+                                //褰撳墠鐨刾ercent
+                                if(i<optionsArr.length-1){
+                                    console.log(votesNum[i]);
+                                    console.log(votesSum);
+                                    var percent = parseInt(votesNum[i]/votesSum*100);
+                                    console.log(percent);
+                                    $(".voteContent").append('<div class="result-per">\
+							<p>'+(i+1)+'銆�'+optionsArr[i]+'</p>\
+							<div class="progress">\
+								<div class="rltprogress-inner" style="width:'+percent+'%;"></div>\
+								<span class="percentNum">'+percent+'%</span>\
+							</div>\
+						</div>');
+                                    percentSum+=percent;
+                                }
+                                if(i==(optionsArr.length-1)){//鏈�鍚庝竴椤�
+                                    $(".voteContent").append('<div class="result-per">\
+							<p>'+(i+1)+'銆�'+optionsArr[i]+'</p>\
+							<div class="progress">\
+								<div class="rltprogress-inner" style="width:'+(100-percentSum)+'%;"></div>\
+								<span class="percentNum">'+(100-percentSum)+'%</span>\
+							</div>\
+						</div>');
+                                }
+                            }
+                        }else{
+                            alert(data.Message);
+                        }
+                    },
+                    type:"post",
+                    data:JSON.stringify({VoteKey:id,Side:ans.join(","),UID:"0"}),
+                    dataType: "json",
+                    contentType:"application/json"
+
+                });
+            }
+        });
+	
+	})
+    </script>
+    <!-- pinglun end -->
+<!-- Gridsum tracking code begin. -->
+
+    <script type="text/javascript" src="http://static.jstv.com/ui/common/file/analytics.js"></script>
+<!--Gridsum tracking code end. -->
+</body>
+<!-- PHPADM Start From PHPAD.CN -->
+<!-- 璇风疆浜巋tml浠ｇ爜鏈�搴曢儴-->
+<script type='text/javascript'>
+PHPADM_ReloadZoneCode();
+</script>
+<!-- PHPADM End From PHPAD.CN -->
+</html>
