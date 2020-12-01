@@ -8,6 +8,6 @@ def into_file(soup : BeautifulSoup):
     f.write(soup.prettify())
 
 if __name__ == '__main__':
-    response = requests.get("http://news.jstv.com/a/20201130/1606733984697.shtml")
+    response = requests.get("http://news.jstv.com/a/20201201/1606785884150.shtml")
     set_encoding(response)
     into_file(BeautifulSoup(response.text, "lxml"))

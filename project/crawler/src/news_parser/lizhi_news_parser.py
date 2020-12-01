@@ -15,6 +15,8 @@ class LiZhiNewsParser(NewsParser, ABC):
     r"""
     荔枝新闻网站解析器
     """
+
+
     def parse_news(self, article: Tag):
         title = article.h3.string
         time_str = article.find(name="span", attrs={"class": "time"}).string
@@ -22,7 +24,7 @@ class LiZhiNewsParser(NewsParser, ABC):
         print(len(time_str))
         author = article.find(name="span", attrs={"class": "source"})
         content = article.find(name="div", attrs={"class" : "content"})
-        paragraphs = (content.find_all(name="p", text=re.compile(".+?[\u4e00-\u9fa5]+.+?")))
+        paragraphs = content.find_all(text=re.compile(".*?[\u4E00-\u9FA5].*?"))
         lead = paragraphs[0].string
         main_text = ""
         for i in paragraphs[1:]:
