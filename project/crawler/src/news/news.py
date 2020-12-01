@@ -1,5 +1,5 @@
 import datetime
-from src.news.comment import Comment, Comments
+from crawler.src.news.comment import Comment, Comments
 
 
 class News(object):
@@ -17,6 +17,7 @@ class News(object):
 
     def __init__(self,
                  time: datetime.date,
+                 author: str,
                  src: str,
                  is_rendered: bool,
                  location: str,
@@ -28,6 +29,7 @@ class News(object):
                  ):
         r"""
         :param time: 时间，注意参数类型
+        :param author: 新闻的作者
         :param src: 新闻的来源，为了保留尽可能完整的信息，直接将该新闻的url传入（这样如果后期发现少了什么信息的话还有办法补救）
         :param is_rendered: 新闻网页是否采用了渲染方式（和src配套，为了后期能够更高效地补全我们漏掉的信息）
         :param location: 描述新闻地址的字符串
@@ -43,6 +45,7 @@ class News(object):
                or news_type == _NewsTypes.WEB_NEWS_PLATFORM
 
         self.time = time
+        self.author = author
         self.src = src
         self.is_rendered = is_rendered
         self.location = location

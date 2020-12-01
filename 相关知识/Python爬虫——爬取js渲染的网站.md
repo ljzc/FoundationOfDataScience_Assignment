@@ -45,6 +45,17 @@
 由于我们只需要获得js渲染出的网页源代码, 并不需要进行网页交互, 所以这里只介绍最为基本的使用方法, 其他方法在有需求时再去查询.
 
 ```python
-
+def get_code_of_rendered_page(url: str) -> str:
+    r"""
+    使用selenium来获取js渲染后的网页源代码
+    :param url: 网页地址
+    :return: 网页源代码
+    """
+    browser = webdriver.Chrome()
+    browser.get(url)
+    code = browser.page_source
+    browser.close()
+    return code
 ```
 
+这是爬虫的`util`包中提供的方法，做好[准备工作](# 准备工作)以后可以调用该方法返回渲染过后的网页代码。

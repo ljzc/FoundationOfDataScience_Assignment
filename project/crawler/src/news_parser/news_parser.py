@@ -1,7 +1,7 @@
 import abc
 
-from src.news import news
-
+from crawler.src.news import news
+from bs4 import BeautifulSoup
 
 class NewsParser(object):
     @abc.abstractmethod
@@ -14,4 +14,3 @@ class NewsParser(object):
         :return: 如果新闻符合要求，返回一个保存该新闻所有信息的news对象，否则返回None
         """
         pass
-

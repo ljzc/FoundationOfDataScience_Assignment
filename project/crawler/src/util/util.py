@@ -28,17 +28,16 @@ def set_encoding(response: requests.Response) -> str:
     return encoding
 
 
-def get_code_of_rendered_page(url: str) -> (str, str):
+def get_code_of_rendered_page(url: str) -> str:
     r"""
     使用selenium来获取js渲染后的网页源代码
     :param url: 网页地址
-    :return: 一个二元组：（网页源代码， 网页编码），为了避免乱码，初始化soup的时候请传入encoding
+    :return: 网页源代码
     """
     browser = webdriver.Chrome()
     browser.get(url)
     code = browser.page_source
-    bytes_of_code = code.to_bytes()
-    encoding = chardet.detect(bytes_of_code)['encoding']
     browser.close()
-    return code, encoding
+    return code
+
 

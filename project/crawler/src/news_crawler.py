@@ -19,18 +19,20 @@ class NewsCrawler(object):
         pass
 
 
-
-
-
-
-
-
 class Source(object):
     BAIDU_NEWS = "news.baidu.com"
     XINLANG_NEWS = "news.sina.com.cn"
     TIANYA_NEWS = "bbs.tianya.cn"
     LIZHI_NEWS = "news.jstv"
     XINHUA_NEWS = "qc.wa.news.cn"
+
+
+class Api(object):
+    BAIDU_NEWS = "https://news.baidu.com/?cmd=1&class=reci"
+    XINLANG_NEWS = "https://news.sina.com.cn/roll/#pageid=153&lid=2509&k=&num=50&page=1"
+    TIANYA_NEWS = "http://bbs.tianya.cn/list.jsp?item=funinfo&grade=3&order=1"
+    LIZHI_NEWS = "http://news.jstv.com/"
+    XINHUA_NEWS = "http://qc.wa.news.cn/nodeart/list?nid=11147664&pgnum=1&cnt=10&tp=1&orderby=1"
 #
 # import requests
 #

@@ -1,4 +1,4 @@
-from src.news_crawler import NewsCrawler
+from crawler.src.news_crawler import NewsCrawler
 
 
 class TestClass:

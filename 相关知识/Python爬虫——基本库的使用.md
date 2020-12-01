@@ -13,16 +13,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 ## urllib库
 
 
@@ -478,7 +468,6 @@ def basic_usage():
       ['\n', <p>项目2</p>, '\n']
       ```
   
-
 - 筛选器选择
 
   以上介绍的所有选择方法都无法脱离网页标签的树状结构, 在对复杂的网页进行搜索的时候是非常麻烦的, 而筛选器选择法则可以跳脱出网页代码的树状结构, 按照指定的条件进行全局搜索!
@@ -517,7 +506,7 @@ def basic_usage():
     | 参数名称  | 含义           | 备注                                                         |
     | --------- | -------------- | ------------------------------------------------------------ |
     | name      | 标签名称       | 例如:`p`,`head`,`body`等等                                   |
-    | attrs     | 标签的参数     | 例如:`class`,`name`等等                                      |
+    | attrs     | 标签的参数     | 例如:`class`,`name`等等(注意，)                              |
     | recursive | 是否递归       | 一般来说使用默认值, 选择否则尽在当前节点的子节点中进行查找   |
     | text      | 节点文本       | 在标签`<h4>Hello</h4>`中`Hello`就属于标签文本, 该参数可以传入普通字符串, 也可以传入正则表达式(使用`re.compile("regular_expression")`来构建一个正则表达式对象), 这一点对于网页文字内容的提取至关重要! |
     | limit     | 查找的最大数量 | 查找出不超过此数量的符合要求的标签, 默认情况下会查找出所有的符合要求的标签 |
@@ -546,13 +535,54 @@ def basic_usage():
 
     下面我将以一个示例来进一步介绍`find_all()`的用法:
 
-    假设我们想要爬取这个新闻的内容:[警惕新冠病毒“物传人”，教你这样防范_荔枝网新闻 (jstv.com)](http://news.jstv.com/a/20201129/1606629502561.shtml)
+    假设我们想要爬取这个新闻的内容:[香港新增病例再次破百，林郑月娥宣布收紧防疫措施_荔枝网新闻 (jstv.com)](http://news.jstv.com/a/20201130/1606733984697.shtml)
 
-    首先我们观察[网页源代码]()的结构:
+    首先我们观察[网页源代码](reference\rest\香港新增病例再次破百，林郑月娥宣布收紧防疫措施_荔枝网新闻(2020-12-01).html)的结构:
 
-    - 网页的大标题位于`<title>`标签中
-    - 网页的所有小标题都直接位于`<strong>`标签中
-    - 网页的正文部分都直接位于`<p>`标签中, 而且还有一个`cms-style`的参数
+    新闻的主要部分都位于`<div class="article">`这个标签中,而且这个标签只有一个, 因此我们首先使用`find()`方法根据这个标签的参数来找到这个标签.
+
+    ```python
+    class LiZhiNewsParser(NewsParser, ABC):
+        r"""
+        荔枝新闻网站解析器
+        """
+        def parse(self, url: str, **keywords) -> news:
+            r"""
+            解析荔枝新闻网页
+            :param url:
+            :param keywords:
+            :return:
+            """
+            # todo
+            # 观察网页代码可以知道，这个新闻网站的新闻内容没有经过渲染，所以直接使用requests模拟请求即可
+            response = requests.get(url)
+            util.set_encoding(response)
+            soup = BeautifulSoup(response.text, "lxml")
+            title, time, author, lead, main_text = self.parse_news(soup.find(name="div",attrs={'class': 'article'}))
+            return News(time, author, url, False, None,_NewsTypes.WEB_NEWS_PLATFORM, None, title, lead, main_text)
+    ```
+
+    然后根据网页结构将相应的部分找到并分开返回:
+
+    ```python
+        def parse_news(self, article: Tag):
+            title = article.h3.string
+            time_str = article.find(name="span", attrs={"class": "time"}).string
+            time = datetime.datetime.strptime(time_str[:len(time_str) - 1], "%Y年%m月%d日 %H:%M:%S")
+            print(len(time_str))
+            author = article.find(name="span", attrs={"class": "source"})
+            content = article.find(name="div", attrs={"class" : "content"})
+            paragraphs = (content.find_all(name="p", text=re.compile(".+?[\u4e00-\u9fa5]+.+?")))
+            lead = paragraphs[0].string
+            main_text = ""
+            for i in paragraphs[1:]:
+                main_text = main_text + i.string + "\n"
+            return title, time, author, lead, main_text
+    ```
+
+    
+
+    
 
 - CSS选择器
 
