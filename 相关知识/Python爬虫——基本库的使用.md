@@ -565,21 +565,19 @@ def basic_usage():
     然后根据网页结构将相应的部分找到并分开返回:
 
     ```python
-        def parse_news(self, article: Tag):
+            def parse_news(self, article: Tag):
             title = article.h3.string
             time_str = article.find(name="span", attrs={"class": "time"}).string
             time = datetime.datetime.strptime(time_str[:len(time_str) - 1], "%Y年%m月%d日 %H:%M:%S")
             print(len(time_str))
             author = article.find(name="span", attrs={"class": "source"})
             content = article.find(name="div", attrs={"class" : "content"})
-            paragraphs = (content.find_all(name="p", text=re.compile(".+?[\u4e00-\u9fa5]+.+?")))
+            paragraphs = content.find_all(text=re.compile(".*?[\u4E00-\u9FA5].*?"))
             lead = paragraphs[0].string
-            main_text = ""
-            for i in paragraphs[1:]:
-                main_text = main_text + i.string + "\n"
+            main_text = map（paragraphs[1:]，lambda t：t.string
             return title, time, author, lead, main_text
     ```
-
+    
     
 
     

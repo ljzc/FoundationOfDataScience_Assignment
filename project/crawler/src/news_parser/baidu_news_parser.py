@@ -1,7 +1,7 @@
 from abc import ABC
 
-from src.news import news
-from src.news_parser.news_parser import NewsParser
+from crawler.src.news import news
+from crawler.src.news_parser.news_parser import NewsParser
 class BaiDuNewsParser(NewsParser, ABC):
     r"""
     百度新闻网页解析器

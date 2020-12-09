@@ -26,9 +26,7 @@ class LiZhiNewsParser(NewsParser, ABC):
         content = article.find(name="div", attrs={"class" : "content"})
         paragraphs = content.find_all(text=re.compile(".*?[\u4E00-\u9FA5].*?"))
         lead = paragraphs[0].string
-        main_text = ""
-        for i in paragraphs[1:]:
-            main_text = main_text + i.string + "\n"
+        main_text = paragraphs[1:]
         return title, time, author, lead, main_text
 
 

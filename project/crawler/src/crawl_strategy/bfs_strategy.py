@@ -1,6 +1,6 @@
 from abc import ABC
 
-from src.crawl_strategy.crawl_strategy import CrawlStrategy
+from crawler.src.crawl_strategy.crawl_strategy import CrawlStrategy
 
 
 class BFSStrategy(CrawlStrategy, ABC):

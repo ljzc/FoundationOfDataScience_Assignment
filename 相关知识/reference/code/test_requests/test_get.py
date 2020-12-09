@@ -2,6 +2,8 @@ import requests
 import re
 import urllib.request as request
 import chardet
+import util
+from bs4 import BeautifulSoup
 
 def get_without_keywords():
     # 发送一个简单的GET请求， 不在url中设置参数
@@ -33,14 +35,18 @@ def get_with_header():
     r = requests.get("https://www.zhihu.com/explore", headers=headers)
     print(r.text)
 
+def output_to_file(url):
+    response = requests.get(url)
+    encoding = util.set_encoding(response)
+    response.encoding = encoding
+    soup = BeautifulSoup(response.encoding, from_encoding=encoding)
+    f = open("source_code.html", "w")
+    f.write(soup.prettify())
+    f.close()
+
 
 
 if __name__ == '__main__':
-    # get_without_keywords()
-    url = request.urlopen("http://news.jstv.com/a/20201129/1606629502561.shtml")
-    raw_data = url.read()
-    encoding = chardet.detect(raw_data)
-    response = requests.get("http://news.jstv.com/a/20201129/1606629502561.shtml")
-    response.encoding = encoding["encoding"]
-    print(encoding)
-    print(response.text)
+    output_to_file()
+
+

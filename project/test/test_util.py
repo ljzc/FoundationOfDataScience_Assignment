@@ -3,6 +3,6 @@ from crawler.src.util import util
 
 
 def test_get_code_of_rendered_page():
-    code = util.get_code_of_rendered_page("https://www.gdtv.cn/article/ba7dd95c04b6f11b2ac51625dfaa1508")
+    code = util.get_code_of_rendered_page_2("https://finance.sina.com.cn/chanjing/2020-12-03/doc-iiznezxs4950037.shtml")
     print(code)
     assert True

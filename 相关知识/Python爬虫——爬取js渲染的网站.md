@@ -32,9 +32,33 @@
 
      >这里是以上版本号的chromedriver安装包, 如果你的版本和我一样, 可以直接使用:
      >
-     > [chromedriver_win32.zip](reference\rest\chromedriver_win32.zip) 
+     >[chromedriver_win32.zip](reference\rest\chromedriver_win32.zip) 
+     >
+     >
 
-- 安装Seleniu库
+  4. 将.zip中的可执行文件解压到Chrome浏览器所在的目录中，可以按照以下方式便捷地找到目录的位置：
+
+     ![屏幕截图 2020-12-02 221148](reference/image/屏幕截图 2020-12-02 221148.jpg)
+
+     点击打开文件位置。
+
+     ![image-20201202221300249](reference/image/image-20201202221300249.png)
+
+     ![屏幕截图 2020-12-02 221344](reference/image/屏幕截图 2020-12-02 221344.jpg)
+
+     右键点击Chrome浏览器的快捷方式，然后选择“打开文件夹所在的位置”
+
+     ![屏幕截图 2020-12-02 221557](reference/image/屏幕截图 2020-12-02 221557.jpg)
+
+     将[chromedriver_win32.zip](reference\rest\chromedriver_win32.zip) (或者你自己下载的安装包)中的可执行文件解压到这个目录之下
+
+     接下来在用户环境变量的`Path`变量中添加这个文件夹的路径
+
+     ![屏幕截图 2020-12-02 222232](reference/image/屏幕截图 2020-12-02 222232.jpg)
+
+     然后点击确定，确定，一直确定下去...
+
+- 安装Selenium
 
   ```
   pip3 install selenium

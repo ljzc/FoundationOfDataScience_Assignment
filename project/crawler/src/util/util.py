@@ -1,7 +1,7 @@
 import chardet
 from selenium import webdriver
 from urllib import request
-
+from requests_html import HTMLSession
 import requests
 
 
@@ -41,3 +41,9 @@ def get_code_of_rendered_page(url: str) -> str:
     return code
 
 
+def get_code_of_rendered_page_2(url: str) -> str:
+    session = HTMLSession()
+    r = session.get(url)
+    # r.html.render()
+    encoding = chardet.detect(r.content)["encoding"]
+    return str(r.content, encoding=encoding)

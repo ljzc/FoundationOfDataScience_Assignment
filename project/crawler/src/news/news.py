@@ -1,6 +1,6 @@
 import datetime
 from crawler.src.news.comment import Comment, Comments
-
+from crawler.src.util.pyh import *
 
 class News(object):
     r"""
@@ -25,7 +25,7 @@ class News(object):
                  comments: Comments,
                  title: str,
                  lead: str,
-                 main_text: str
+                 main_text: list
                  ):
         r"""
         :param time: 时间，注意参数类型
@@ -37,7 +37,7 @@ class News(object):
         :param comments:评论，注意传入Comments类的对象
         :param title: 标题
         :param lead: 导语
-        :param main_text: 主体部分（除了导语外的正文部分）
+        :param main_text: 主体部分（除了导语外的正文部分）,一段是一个元素
         """
         # 保证新闻类型来自预先定义好的常量
         assert news_type == _NewsTypes.CENTRAL_MEDIA \
@@ -55,11 +55,14 @@ class News(object):
         self.main_text = main_text
         self.lead = lead
 
-        self.emotional_words = dict()
+        # self.emotional_words = dict()
         self.emotional_vector = []
+        self.psychology_vector = []
         self.is_significant = False
         self.summery = None
         self.event_type = ""
+
+
 
     def to_string(self) -> str:
         r"""
@@ -67,7 +70,7 @@ class News(object):
         :return: 一个格式化好的字符串，可以直接写入文件或者传入数据库储存起来的那种
         """
         # todo
-        pass
+
 
 
 class _NewsTypes(object):

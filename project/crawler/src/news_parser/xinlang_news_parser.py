@@ -1,7 +1,7 @@
 from abc import ABC
 
-from src.news import news
-from src.news_parser.news_parser import NewsParser
+from crawler.src.news import news
+from crawler.src.news_parser.news_parser import NewsParser
 
 
 class XinLangNewsParser(NewsParser, ABC):
