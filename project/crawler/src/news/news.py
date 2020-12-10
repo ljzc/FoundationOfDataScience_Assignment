@@ -1,6 +1,6 @@
-import datetime
+from datetime import date
 from crawler.src.news.comment import Comment, Comments
-from crawler.src.util.pyh import *
+import crawler.src.util.html_constructor as html_cons
 
 class News(object):
     r"""
@@ -16,7 +16,7 @@ class News(object):
         pass
 
     def __init__(self,
-                 time: datetime.date,
+                 time: date,
                  author: str,
                  src: str,
                  is_rendered: bool,
@@ -50,7 +50,7 @@ class News(object):
         self.is_rendered = is_rendered
         self.location = location
         self.news_type = news_type
-        self.commends = comments
+        self.comments = comments
         self.title = title
         self.main_text = main_text
         self.lead = lead
@@ -69,7 +69,42 @@ class News(object):
         将新闻格式化为一个字符串，以便于写入文件中
         :return: 一个格式化好的字符串，可以直接写入文件或者传入数据库储存起来的那种
         """
-        # todo
+        # 标题
+        title = html_cons.h1(self.title)
+
+        # 基本信息
+        time = html_cons.p(self.time.strftime("%Y-%m-%d"), id_no="time")
+        author = html_cons.p(self.author, id_no="author")
+        src = html_cons.p().add(html_cons.a("新闻链接",href=self.src))
+        render = html_cons.p("渲染： {0}".format(self.is_rendered),id_no="is_rendered")
+        location = html_cons.p("地点： {0}".format(self.location),id_no="location")  # 这个可能要改
+        news_type = html_cons.p("类型： {0}".format(self.news_type),id_no="news_type")
+        basic_info = html_cons.div(id_no="basic_info").add(html_cons.h2("基本信息："))\
+            .add(time).add(author).add(src).add(render).add(location).add(news_type)
+
+        # 正文+导语
+        lead = html_cons.p(id_no="lead").add(html_cons.strong(self.lead))
+        main_text = html_cons.div(id_no="main_text")
+        cnt = 1
+        for p in self.main_text:
+            main_text.add(html_cons.p(p, id_no="paragraph_{0}".format(cnt)))
+            cnt += 1
+        article = html_cons.div(id_no="article").add(html_cons.h2("新闻主体：")).add(lead).add(main_text)
+
+        # 分析信息
+        analyse = html_cons.div("分析信息，还没想好", id_no="analyse_info")
+
+        # 评论
+        comments = self.comments.format()
+
+        return html_cons.html().add(html_cons.body()
+                                    .add(title)
+                                    .add(basic_info)
+                                    .add(article)
+                                    .add(analyse)
+                                    .add(comments)
+                                    ).to_html_string()
+
 
 
 

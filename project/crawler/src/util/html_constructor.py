@@ -27,6 +27,8 @@ class Tag:
         return self
 
     def get_begin_tag(self):
+        if(self.tag == _HR or self == _BR):
+            return "<{tag} />".format(tag=self.tag)
         begin_tag = "<" + self.tag
         if (self.kwargs != None):
             for it in self.kwargs.items():
@@ -35,6 +37,8 @@ class Tag:
         return begin_tag
 
     def get_end_tag(self):
+        if (self.tag == _HR or self == _BR):
+            return ""
         return "</{0}>".format(self.tag)
 
     def inner_to_string(self):
@@ -91,3 +95,6 @@ def li(text="", id_no="default li"):
 
 def strong(text="default text"):
     return Tag(_STRONG, text=text)
+
+def hr():
+    return Tag(_HR)
