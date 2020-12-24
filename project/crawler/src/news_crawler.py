@@ -1,3 +1,18 @@
+import re
+from crawler.src.news_parser.baidu_news_parser import *
+from crawler.src.news_parser.tianya_news_parser import *
+from crawler.src.news_parser.other_parser import *
+from crawler.src.news_parser.lizhi_news_parser import *
+from crawler.src.news_parser.xinlang_news_parser import *
+
+parsers = {re.compile("^https://baijiahao\\.baidu\\.com/s\\?id=[0-9]+.+$"): BaiDuNewsParser(),
+           re.compile("^https://epaper\\.scdaily\\.cn/shtml/scrb/[0-9]+/[0-9]+\\.shtml$"): SiChuanNews(),
+           re.compile("^http://bbs\\.tianya\\.cn/post-[a-zA-Z]+-[0-9]+-[0-9]+\\.shtml$"): TianYaNewsParser(),
+           re.compile("^http://news\\.jstv\\.com/a/[0-9]+/[0-9]\\.shtml$"): LiZhiNewsParser(),
+           re.compile("^https://(news|k)\\.sina\\.com\\.cn/.*?\\.(html|shtml)"): XinLangNewsParser(),
+           }
+
+
 class NewsCrawler(object):
 
     def __init__(self):
@@ -33,6 +48,7 @@ class Api(object):
     TIANYA_NEWS = "http://bbs.tianya.cn/list.jsp?item=funinfo&grade=3&order=1"
     LIZHI_NEWS = "http://news.jstv.com/"
     XINHUA_NEWS = "http://qc.wa.news.cn/nodeart/list?nid=11147664&pgnum=1&cnt=10&tp=1&orderby=1"
+
 #
 # import requests
 #

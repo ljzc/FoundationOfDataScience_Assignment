@@ -5,7 +5,8 @@ from datetime import date
 
 
 def test_news_to_string():
-    f = open("test_news_to_string.md", "w", encoding="utf_8").write(News(
+
+    f = open("news_info\\" + datetime.datetime.now().strftime("(%Y-%m-%d)") + ".md", "w", encoding="utf_8").write(News(
         date.today(),
         "测试作者",
         "https://cn.bing.com/",

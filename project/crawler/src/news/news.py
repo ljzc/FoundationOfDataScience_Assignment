@@ -95,7 +95,10 @@ class News(object):
         analyse = html_cons.div("分析信息，还没想好", id_no="analyse_info")
 
         # 评论
-        comments = self.comments.format()
+        comments = html_cons.div(id_no="comments").add(html_cons.h2("评论："))
+        if self.comments != None:
+            comments = self.comments.format()
+
 
         return html_cons.html().add(html_cons.body()
                                     .add(title)
