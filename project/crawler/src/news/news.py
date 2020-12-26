@@ -15,6 +15,7 @@ class News(object):
         # todo
         pass
 
+
     def __init__(self,
                  time: date,
                  author: str,
@@ -25,7 +26,8 @@ class News(object):
                  comments: Comments,
                  title: str,
                  lead: str,
-                 main_text: list
+                 main_text: list,
+                 attrs=None
                  ):
         r"""
         :param time: 时间，注意参数类型
@@ -38,6 +40,7 @@ class News(object):
         :param title: 标题
         :param lead: 导语
         :param main_text: 主体部分（除了导语外的正文部分）,一段是一个元素
+        :param attrs: 相关参数，例如转赞评
         """
         # 保证新闻类型来自预先定义好的常量
         assert news_type == _NewsTypes.CENTRAL_MEDIA \
@@ -54,6 +57,7 @@ class News(object):
         self.title = title
         self.main_text = main_text
         self.lead = lead
+        self.attrs = attrs
 
         # self.emotional_words = dict()
         self.emotional_vector = []

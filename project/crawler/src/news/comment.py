@@ -4,16 +4,18 @@ class Comment(object):
     r"""
     评论类， 用来储存新闻的评论
     """
-    def __init__(self, time: datetime.date, content: str, author=""):
+    def __init__(self, time: datetime.date, content: str, author="", attrs=None):
         r"""
 
         :param time: 评论发出的时间
         :param content: 评论的内容
         :param author: 评论的作者（我不知道记录作者会不会侵犯别人的权利....）
+        :param attrs: 评论参数，例如是否热门，赞数量等
         """
         self.time = time
         self.content = content
         self.author = author
+        self.attrs = attrs
 
     def format(self) -> html_cons.Tag:
         time = html_cons.p(self.time.strftime("%Y-%m-%d"), id_no="comment_time")

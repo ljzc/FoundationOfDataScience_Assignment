@@ -1,0 +1,13 @@
+[
+  "test_crawler.py::TestClass::test_1",
+  "test_heml_construetor.py::test_tag",
+  "test_lib.py::TestLib::test_geopy",
+  "test_lib.py::test_re",
+  "test_news.py::test_news_to_string",
+  "test_parser.py::test_lizhi",
+  "test_parser.py::test_requests",
+  "test_util.py::test_detect_encoding",
+  "test_util.py::test_get_code_of_rendered_page",
+  "test_weibo_parser.py::test_pages_of",
+  "test_weibo_strategy.py::test"
+]

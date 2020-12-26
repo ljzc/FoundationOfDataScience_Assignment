@@ -6,6 +6,9 @@ from crawler.src.util import util
 import time
 import random
 import re
+from crawler.src.news.comment import Comment
+from crawler.src.news.comment import Comments
+from bs4 import BeautifulSoup
 
 
 class WeiboParser(NewsParser, ABC):
@@ -22,8 +25,25 @@ class WeiboParser(NewsParser, ABC):
             pages.append(cur)
         return pages
 
+    def parse_one_comment(self, comment_block: BeautifulSoup):
+        time_str = re.match("'(\\S+ \\S+).*?'", comment_block.find(name='span', attrs={'class': 'ct'}).text)[1]
+        if re.match("^[0-9]{2}月[0-9]{2}日.*", time_str):
+            time_str = "{year}年{other}".format(year=datetime.today().year, other=time_str).replace('\n', '').replace('\r', '')
+        time = datetime.strptime(time_str, "%Y年%m月%d日 %H:%M")
+        content = comment_block.find(name='span', attrs={'class': 'ctt'}).text
+        author = comment_block.find(name='a').text
+        attrs = {}
+        attrs['attitude'] = int(re.match("转发\\[([0-9]+)\\]", comment_block.find(text=re.compile('赞.*')).text)[1])
+        attrs['is_hot'] = comment_block.find(name='span', attrs={'class': 'kt'}) != None
+        return Comment(time, content, author, attrs)
+
     def parse_comments(self, pages: list):
-        pass
+        comments = Comments()
+        for page in pages:
+            for raw in page.findall(name='div', attrs={'class': 'c'}):
+                if raw.id is not None:
+                    comments.add_comment(self.parse_one_comment(raw))
+        return comments
 
     def parse_pages(self, pages: list):
         ret = {}
@@ -38,9 +58,13 @@ class WeiboParser(NewsParser, ABC):
         if re.match("^[0-9]{2}月[0-9]{2}日.*", time_str):
             time_str = "{year}年{other}".format(year=datetime.today().year, other=time_str).replace('\n', '').replace('\r', '')
 
-        ret['time'] = datetime.strptime(time_str, "%Y年%m月%d日 %H:%M")
+        ret['time'] = datetime.strptime(time_str, "%Y年%m月%d日 %H:%M").date()
+        news_attrs = main_news.next_siblings.next_siblings
+        ret['attrs'] = {}
+        ret['attrs']['repost'] = int(re.match("转发\\[([0-9]+)\\]", news_attrs.find(text=re.compile("转发.*")).text)[1])
+        ret['attrs']['comment_number'] = int(re.match("评论\\[([0-9]+)\\]", news_attrs.find(text=re.compile("评论.*")).text)[1])
+        ret['attrs']['attitude'] = int(re.match("赞\\[([0-9]+)\\]", news_attrs.find(text=re.compile("赞.*")).text)[1])
         ret['contents'] = self.parse_comments(pages)
-
         return ret
 
 
