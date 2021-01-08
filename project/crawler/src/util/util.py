@@ -2,10 +2,8 @@ import chardet
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from urllib import request
-from requests_html import HTMLSession
 import requests
 from datetime import date
-import crawler.src.util.html_constructor as html_cons
 
 headers_1 = {
     'Cookie': 'SINAGLOBAL=8342053747702.012.1598857415409; '
@@ -66,12 +64,12 @@ def get_code_of_rendered_page(url: str) -> str:
     return code
 
 
-def get_code_of_rendered_page_2(url: str) -> str:
-    session = HTMLSession()
-    r = session.get(url)
-    # r.html.render()
-    encoding = chardet.detect(r.content)["encoding"]
-    return str(r.content, encoding=encoding)
+# def get_code_of_rendered_page_2(url: str) -> str:
+#     session = HTMLSession()
+#     r = session.get(url)
+#     # r.html.render()
+#     encoding = chardet.detect(r.content)["encoding"]
+#     return str(r.content, encoding=encoding)
 
 
 def to_mark_down(code, path="news_info", name=""):
@@ -86,3 +84,9 @@ def get_weibo_page(url: str) -> BeautifulSoup:
     response = requests.get(url, headers=headers_2)
     soup = BeautifulSoup(response.text, 'lxml')
     return soup
+
+
+def beautify(raw : str) -> str:
+    raw = raw.replace("\n", "").replace("\r", "")
+    raw = raw.strip()
+    return raw

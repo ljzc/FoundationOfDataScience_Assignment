@@ -9,5 +9,6 @@
   "test_util.py::test_detect_encoding",
   "test_util.py::test_get_code_of_rendered_page",
   "test_weibo_parser.py::test_pages_of",
+  "test_weibo_parser.py::test_parse_pages",
   "test_weibo_strategy.py::test"
 ]
