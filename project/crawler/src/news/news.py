@@ -20,7 +20,7 @@ def parse_from_info(news_info):
     time = datetime.strptime(beautify(time), "%Y-%m-%d")
     author = soup.find(attrs={"id" : "author"}).text
     src = soup.find(attrs={"id": "src"}).a.attrs["href"]
-    render = bool(beautify(soup.find(attrs={"id" : "is_rendered"}).text).split(" ")[1])
+    render = beautify(soup.find(attrs={"id" : "is_rendered"}).text).split(" ")[1] == "True"
     location = parse_location(soup.find(attrs={"id": "location"}))
     news_type = beautify(soup.find(attrs={"id": "news_type"}).text).split(" ", 1)[1]
     attrs_li = soup.find(attrs={"id": "attrs"}).find_all(name="li")

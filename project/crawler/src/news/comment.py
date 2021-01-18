@@ -23,7 +23,7 @@ def parse_comment(comment_info: BeautifulSoup):
     time = datetime.strptime(time_str, "%Y-%m-%d")
     author = comment_info.find(attrs={"id": "comment_author"}).text
     attrs_li = comment_info.find(attrs={"id": "comment_attrs"}).find_all(name="li")
-    attrs = {"is_hot": bool(beautify(attrs_li[0].text).split(" ")[1]),
+    attrs = {"is_hot": beautify(attrs_li[0].text).split(" ")[1] == "True",
              "attitude": int(beautify(attrs_li[1].text).split(" ")[1])}
     content = comment_info.find(attrs={"id": "comment_content"}).text
     analyse = parse_analyse_info(comment_info.find(attrs={"id": "comment_analyse_info"}))
