@@ -90,7 +90,7 @@ def a(text="", href=""):
 
 
 def li(text="", id_no="default li"):
-    return Tag(_LI, text=text)
+    return Tag(_LI, text=text, id_no=id_no)
 
 
 def strong(text="default text"):

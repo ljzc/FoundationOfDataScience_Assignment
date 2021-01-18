@@ -1,19 +1,49 @@
-from datetime import date
-from crawler.src.news.comment import Comment, Comments
+from datetime import datetime, date
+from crawler.src.news.comment import Comment, Comments, parse_comment_block
 import crawler.src.util.html_constructor as html_cons
+from bs4 import BeautifulSoup
+from crawler.src.util.util import beautify
+
+def parse_location(location_info):
+    pass
+
+def parse_analyse(analyse_info):
+    pass
+
+def parse_from_info(news_info):
+    r"""
+    将一个由to_string()方法格式化的字符串解析成一个News对象，返回该对象
+    """
+    soup = BeautifulSoup(news_info)
+    title = soup.find(attrs={"id": "title"}).text
+    time = soup.find(attrs={"id": "time"}).text
+    time = datetime.strptime(beautify(time), "%Y-%m-%d")
+    author = soup.find(attrs={"id" : "author"}).text
+    src = soup.find(attrs={"id": "src"}).a.attrs["href"]
+    render = bool(beautify(soup.find(attrs={"id" : "is_rendered"}).text).split(" ")[1])
+    location = parse_location(soup.find(attrs={"id": "location"}))
+    news_type = beautify(soup.find(attrs={"id": "news_type"}).text).split(" ", 1)[1]
+    attrs_li = soup.find(attrs={"id": "attrs"}).find_all(name="li")
+    attrs = {"repost": int(beautify(attrs_li[0].text).split(" ")[1]),
+             "comment_number": int(beautify(attrs_li[1].text).split(" ")[1]),
+             "attitude": int(beautify(attrs_li[2].text).split(" ")[1])}
+    lead = soup.find(attrs={"id" : "lead"}).strong.text
+    main_text = []
+    for p in soup.find(attrs={"id" : "main_text"}).find_all(name="p"):
+        main_text.append(beautify(p.text))
+    analyse = parse_analyse(soup.find(attrs={"id": "analyse_info"}))
+    comments = parse_comment_block(soup.find(attrs={"id": "comments"}))
+    return News(time, author, src, render, location, news_type, comments, title, lead, main_text, attrs)
+    # todo
+    pass
 
 class News(object):
     r"""
     这是存放新闻的类，计划后期做数据分析的时候也用这个类。
     """
 
-    @staticmethod
-    def parse(news_info):
-        r"""
-        将一个由to_string()方法格式化的字符串解析成一个News对象，返回该对象
-        """
-        # todo
-        pass
+
+
 
 
     def __init__(self,
@@ -66,25 +96,28 @@ class News(object):
         self.summery = None
         self.event_type = ""
 
-
-
     def to_string(self) -> str:
         r"""
         将新闻格式化为一个字符串，以便于写入文件中
         :return: 一个格式化好的字符串，可以直接写入文件或者传入数据库储存起来的那种
         """
         # 标题
-        title = html_cons.h1(self.title)
+        title = html_cons.h1(self.title, id_no="title")
 
         # 基本信息
         time = html_cons.p(self.time.strftime("%Y-%m-%d"), id_no="time")
         author = html_cons.p(self.author, id_no="author")
-        src = html_cons.p().add(html_cons.a("新闻链接",href=self.src))
-        render = html_cons.p("渲染： {0}".format(self.is_rendered),id_no="is_rendered")
-        location = html_cons.p("地点： {0}".format(self.location),id_no="location")  # 这个可能要改
-        news_type = html_cons.p("类型： {0}".format(self.news_type),id_no="news_type")
-        basic_info = html_cons.div(id_no="basic_info").add(html_cons.h2("基本信息："))\
+        src = html_cons.p(id_no="src").add(html_cons.a("新闻链接", href=self.src))
+        render = html_cons.p("渲染： {0}".format(self.is_rendered), id_no="is_rendered")
+        location = html_cons.p("地点： {0}".format(self.location), id_no="location")  # 这个可能要改
+        news_type = html_cons.p("类型： {0}".format(self.news_type), id_no="news_type")
+        basic_info = html_cons.div(id_no="basic_info").add(html_cons.h2("基本信息：")) \
             .add(time).add(author).add(src).add(render).add(location).add(news_type)
+
+        # 参数
+        attrs = html_cons.div(id_no="attrs").add(html_cons.li("转发： {repost}".format(repost=self.attrs["repost"]), id_no="repost"))\
+            .add(html_cons.li("评论数量： {comments}".format(comments=self.attrs["comment_number"]), id_no="comment_number"))\
+            .add(html_cons.li("赞： {attitude}".format(attitude=self.attrs["attitude"]), id_no="attitude"))
 
         # 正文+导语
         lead = html_cons.p(id_no="lead").add(html_cons.strong(self.lead))
@@ -100,19 +133,17 @@ class News(object):
 
         # 评论
         comments = html_cons.div(id_no="comments").add(html_cons.h2("评论："))
-        if self.comments != None:
+        if self.comments is not None:
             comments = self.comments.format()
-
 
         return html_cons.html().add(html_cons.body()
                                     .add(title)
                                     .add(basic_info)
+                                    .add(attrs)
                                     .add(article)
                                     .add(analyse)
                                     .add(comments)
                                     ).to_html_string()
-
-
 
 
 class _NewsTypes(object):

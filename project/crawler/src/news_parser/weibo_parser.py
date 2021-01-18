@@ -56,13 +56,13 @@ class WeiboParser(NewsParser, ABC):
         ret['title'] = beautify(main_content.find_next(name='a').text + main_content.find_next(name='a').text)
         text = main_content.text.split("。", 1)
         ret['lead'] = beautify(text[0])
-        ret['main_text'] = beautify(text[1])
+        ret['main_text'] = text[1].split("\n")
         time_str = main_news.find(name='span', attrs={'class': 'ct'}).text
         # if re.match("^[0-9]{2}月[0-9]{2}日.*", time_str):
         #     time_str = "{year}年{other}".format(year=datetime.today().year, other=time_str)
         time_str = beautify(time_str)
         time_str = re.match("^ *(.+?) *$", time_str)[1]
-        ret['time'] = datetime.strptime(time_str, "%Y-%m-%d %H:%M:%S").date()
+        ret['time'] = datetime.strptime(time_str, "%Y-%m-%d %H:%M:%S")   .date()
         news_attrs = main_news.next_sibling.next_sibling.next_sibling.next_sibling
         ret['attrs'] = {}
         target = news_attrs.find(text=re.compile(".*转发\\[[0-9]+].*"))

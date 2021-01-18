@@ -22,7 +22,7 @@ def into_file(soup: BeautifulSoup, encod='utf-8', mark=''):
 
 def into_soup(path: str):
     f = open(path, 'r', encoding='utf-8')
-    content = f.read(10000000000)
+    content = f.read(10000000)
     f.close()
     return BeautifulSoup(content, 'lxml')
 

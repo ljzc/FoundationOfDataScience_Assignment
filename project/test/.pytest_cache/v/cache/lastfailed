@@ -2,6 +2,5 @@
   "test_lib.py": true,
   "test_lib.py::test_re": true,
   "test_news.py": true,
-  "test_util.py": true,
-  "test_weibo_parser.py::test_parse_pages": true
+  "test_util.py": true
 }
