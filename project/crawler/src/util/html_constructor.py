@@ -51,7 +51,7 @@ class Tag:
         return html
 
     def to_html_string(self):
-        soup = BeautifulSoup(self.inner_to_string())
+        soup = BeautifulSoup(self.inner_to_string(), 'lxml')
         return soup.prettify()
 
 

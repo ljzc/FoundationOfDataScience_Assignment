@@ -1,9 +1,12 @@
+import random
+
 import chardet
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from urllib import request
 import requests
 from datetime import date
+import time
 
 headers_1 = {
     'Cookie': 'SINAGLOBAL=8342053747702.012.1598857415409; '
@@ -25,6 +28,18 @@ headers_2 = {
               '--RiKn4i-zEi--Ri-2pi-8hi--Ri-2pi-8Feo5pS05E; _T_WM=fd3c35281ac629c3f6d0020a95074b5d ',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
                   'Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.66 '
+}
+
+headers_3 = {
+    'Cookie': '_T_WM=0c1a41709a5fff9c7701d3964bb29a7e; WEIBOCN_WM=3349; H5_wentry=H5; '
+              'backURL=https%3A%2F%2Fweibo.cn%2F; '
+              'SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WFWO5gkn9V9_sCCeVAnKCIr5NHD95QNSK-pSheE1h24Ws4DqcjMi--NiK.Xi-2Ri'
+              '--ciKnRi-zNS0-feKB0eonp1Btt; '
+              'SUB=_2A25NASSJDeRhGeFL7lMV8yzEyjWIHXVuCkzBrDV6PUJbktAKLW36kW1Nfe4wC2a6zuHCt_0MEhgrwr9cNWVNkOUf; '
+              'SSOLoginState=1610962137 ',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                  'Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75 '
+
 }
 
 
@@ -75,18 +90,29 @@ def get_code_of_rendered_page(url: str) -> str:
 def to_mark_down(code, path="news_info", name=""):
     if name == "":
         name = "default_" + date.today().strftime("%Y-%m-%d")
-    f = open("{path}\\{name}.md".format(path=path, name=name), "w", encoding="utf-8")
+    f = None
+    try:
+        f = open("{path}\\{name}.md".format(path=path, name=name), "w", encoding="utf-8")
+    except OSError:
+        f = open("{path}\\{name}.md".format(path=path, name=f"{date.today().strftime('%Y-%m-%d')}_原命名不合法"), "w",
+                 encoding="utf-8")
     f.write(code)
     f.close()
 
 
-def get_weibo_page(url: str) -> BeautifulSoup:
-    response = requests.get(url, headers=headers_2)
+def get_weibo_page(url: str, headers=headers_3) -> BeautifulSoup:
+    response = requests.get(url, headers=headers)
+    # print("状态码：{code}".format(code=response.status_code))
+    while response.status_code != 200:
+        sec = (50 + random.random() * 100)
+        print("出现错误:{code}，等待{second}秒...".format(code=response.status_code, second=round(sec, 5)))
+        time.sleep(sec)
+        response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, 'lxml')
     return soup
 
 
-def beautify(raw : str) -> str:
+def beautify(raw: str) -> str:
     raw = raw.replace("\n", "").replace("\r", "")
     raw = raw.strip()
     return raw

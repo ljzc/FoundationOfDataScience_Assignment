@@ -1,3 +1,4 @@
+import random
 from abc import ABC
 
 from crawler.src.crawl_strategy.crawl_strategy import CrawlStrategy
@@ -12,10 +13,12 @@ import crawler.src.util.util as util
 def news_generator(home_page: str, start, end, headers=util.headers_2):
     for pageNO in range(start, end):
         soup = util.get_weibo_page(home_page.format(pageNO=pageNO))
-
+        print(f"page： {pageNO}")
         for blog in soup.find_all(attrs={'class': 'cc'}):
             yield blog.attrs['href'].split('?')[0]
-        time.sleep(15)
+        sec = random.choice(range(5, 15))
+        print(f"wait...{sec}")
+        time.sleep(sec)
 
 
 class WeiboStrategy(CrawlStrategy, ABC):

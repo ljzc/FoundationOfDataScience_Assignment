@@ -4,6 +4,9 @@ from crawler.src.news_parser.tianya_news_parser import *
 from crawler.src.news_parser.other_parser import *
 from crawler.src.news_parser.lizhi_news_parser import *
 from crawler.src.news_parser.xinlang_news_parser import *
+from crawler.src.news_parser.weibo_parser import WeiboParser
+from crawler.src.crawl_strategy.other_strategy import WeiboStrategy as WStra
+import threading
 
 parsers = {re.compile("^https://baijiahao\\.baidu\\.com/s\\?id=[0-9]+.+$"): BaiDuNewsParser(),
            re.compile("^https://epaper\\.scdaily\\.cn/shtml/scrb/[0-9]+/[0-9]+\\.shtml$"): SiChuanNews(),
@@ -49,6 +52,7 @@ class Api(object):
     LIZHI_NEWS = "http://news.jstv.com/"
     XINHUA_NEWS = "http://qc.wa.news.cn/nodeart/list?nid=11147664&pgnum=1&cnt=10&tp=1&orderby=1"
 
+
 #
 # import requests
 #
@@ -71,3 +75,41 @@ class Api(object):
 # if __name__ == '__main__':
 #     geocode1("天安门")
 #
+
+
+def weibo_craw(start, end, project_path, headers=util.headers_3):
+    parser = WeiboParser(headers)
+    for page in range(start, end, 5):
+        f = open(f"{project_path}\\resorce\\weibo_urls({page}页-{page + 4}页).txt", "r", encoding='utf-8')
+        weibo_urls = f.read().split("\n")
+        if weibo_urls[-1] == 'finished!':
+            print(f"已完成的部分：weibo_urls({page}页-{page + 4}页).txt")
+            continue
+        f.close()
+        for weibo_url in weibo_urls:
+            if weibo_url == '':
+                continue
+            weibo_news = parser.parse(weibo_url)
+            file_name = "{time}_{title}".format(time=weibo_news.time.strftime("%Y-%m-%d"),
+                                                title=util.beautify(weibo_news.title))
+            path = "{project_path}\\weibo_data".format(project_path=project_path)
+            code = weibo_news.to_string()
+            util.to_mark_down(code, path, file_name)
+        f = open(f"{project_path}\\resorce\\weibo_urls({page}页-{page + 4}页).txt", "a", encoding='utf-8')
+        f.write("finished!")
+        f.close()
+        print(f"已完成：weibo_urls({page}页-{page + 4}页).txt")
+
+def multi_thread(tasks: list, project_path: str):
+    for task in tasks:
+        headers = task[0]
+        start_page = task[1]
+        end_page = task[2]
+        thread = threading.Thread(target=weibo_craw, args=(start_page, end_page, project_path, headers))
+        thread.start()
+
+
+if __name__ == '__main__':
+    # 1100-2557
+    multi_thread([(util.headers_3, 1105, 1115)],
+                 "D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project")

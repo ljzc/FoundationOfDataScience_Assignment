@@ -13,16 +13,26 @@ from bs4 import BeautifulSoup
 
 
 class WeiboParser(NewsParser, ABC):
+    def __init__(self, headers=util.headers_3):
+        self.headers = headers
+
     def pages_of(self, url: str):
         pages = []
-        first = util.get_weibo_page("{base}?page={pageNO}".format(base=url, pageNO=1))
-        end = int(first.find(attrs={'name': 'mp'}).attrs['value'])
+        first = util.get_weibo_page("{base}?page={pageNO}".format(base=url, pageNO=1), headers=self.headers)
         pages.append(first)
+        temp = first.find(attrs={'name': 'mp'})
+        end = 1
+        if temp is not None:
+            end = int(temp.attrs['value'])
+        else:
+            print(f"没有页数信息，默认1页，请确认：{url}")
+            return pages
+
         for i in range(2, end + 1):
-            sec = random.choice(range(5, 15))
-            print("正在爬取{url}的第{pageNO}页，为了防止微博封号，请耐心等待{second}秒...".format(url=url, pageNO=i, second=sec))
+            sec = (0.05 + random.random() * 0.01)
+            print("正在爬取{url}的第{pageNO}/{total}页".format(url=url, pageNO=i, total=end))
             time.sleep(sec)
-            cur = util.get_weibo_page("{base}?page={pageNO}".format(base=url, pageNO=i))
+            cur = util.get_weibo_page("{base}?page={pageNO}".format(base=url, pageNO=i), headers=self.headers)
             pages.append(cur)
         return pages
 
@@ -56,14 +66,17 @@ class WeiboParser(NewsParser, ABC):
         ret['title'] = beautify(main_content.find_next(name='a').text + main_content.find_next(name='a').text)
         text = main_content.text.split("。", 1)
         ret['lead'] = beautify(text[0])
-        ret['main_text'] = text[1].split("\n")
+        if len(text) > 1:
+            ret['main_text'] = text[1].split("\n")
+        else:
+            ret['main_text'] = []
         time_str = main_news.find(name='span', attrs={'class': 'ct'}).text
         # if re.match("^[0-9]{2}月[0-9]{2}日.*", time_str):
         #     time_str = "{year}年{other}".format(year=datetime.today().year, other=time_str)
         time_str = beautify(time_str)
         time_str = re.match("^ *(.+?) *$", time_str)[1]
-        ret['time'] = datetime.strptime(time_str, "%Y-%m-%d %H:%M:%S")   .date()
-        news_attrs = main_news.next_sibling.next_sibling.next_sibling.next_sibling
+        ret['time'] = datetime.strptime(time_str, "%Y-%m-%d %H:%M:%S").date()
+        news_attrs = pages[0].find(attrs={"class": "pms"}).parent
         ret['attrs'] = {}
         target = news_attrs.find(text=re.compile(".*转发\\[[0-9]+].*"))
         result = re.match(".*?([0-9]+).*?", str(target).replace("\n", "").replace(" ", ""))
@@ -82,4 +95,3 @@ class WeiboParser(NewsParser, ABC):
 
         return news.News(result['time'], result['author'], url, False, None, news._NewsTypes.CENTRAL_MEDIA,
                          result['comments'], result['title'], result['lead'], result['main_text'], result['attrs'])
-
