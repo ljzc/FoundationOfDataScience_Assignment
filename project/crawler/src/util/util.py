@@ -103,9 +103,12 @@ def to_mark_down(code, path="news_info", name=""):
 def get_weibo_page(url: str, headers=headers_3) -> BeautifulSoup:
     response = requests.get(url, headers=headers)
     # print("状态码：{code}".format(code=response.status_code))
-    while response.status_code != 200:
+    while response.status_code != 200 or response.text == '':
         sec = (50 + random.random() * 100)
-        print("出现错误:{code}，等待{second}秒...".format(code=response.status_code, second=round(sec, 5)))
+        if response.status_code == 200:
+            print("出现错误:{code}，等待{second}秒...".format(code=response.status_code, second=round(sec, 5)))
+        elif response.text == '':
+            print("页面为空， 等待{second}秒...".format(second=sec))
         time.sleep(sec)
         response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, 'lxml')

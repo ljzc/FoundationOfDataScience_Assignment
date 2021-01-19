@@ -38,7 +38,10 @@ class WeiboParser(NewsParser, ABC):
 
     def parse_one_comment(self, comment_block: BeautifulSoup):
         time_str = beautify(comment_block.find(name='span', attrs={'class': 'ct'}).text).split(" ")[0]
-        time = datetime.strptime(time_str, "%Y-%m-%d")
+        weibo_time = None
+        if re.match("[0-9]+月[0-9]+日", time_str):
+            time_str = f"{2021}-{time_str.replace('月', '-').replace('日', '')}"
+        weibo_time = datetime.strptime(time_str, "%Y-%m-%d")
         content = beautify(comment_block.find(name='span', attrs={'class': 'ctt'}).text)
         author = comment_block.find(name='a').text
         attrs = {}
@@ -46,7 +49,7 @@ class WeiboParser(NewsParser, ABC):
         target = beautify(target)
         attrs['attitude'] = int(re.match(".*?([0-9]+).*?", target)[1])
         attrs['is_hot'] = comment_block.find(name='span', attrs={'class': 'kt'}) != None
-        return Comment(time, content, author, attrs)
+        return Comment(weibo_time, content, author, attrs)
 
     def parse_comments(self, pages: list):
         comments = Comments()
