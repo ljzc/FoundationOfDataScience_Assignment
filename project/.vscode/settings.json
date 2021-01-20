@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "C:\\Users\\13622\\AppData\\Local\\Programs\\Python\\Python38\\python.exe",
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true
+
+}
