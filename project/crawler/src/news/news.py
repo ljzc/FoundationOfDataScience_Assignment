@@ -4,11 +4,14 @@ import crawler.src.util.html_constructor as html_cons
 from bs4 import BeautifulSoup
 from crawler.src.util.util import beautify
 
+
 def parse_location(location_info):
     pass
 
+
 def parse_analyse(analyse_info):
     pass
+
 
 def parse_from_info(news_info):
     r"""
@@ -18,18 +21,18 @@ def parse_from_info(news_info):
     title = soup.find(attrs={"id": "title"}).text
     time = soup.find(attrs={"id": "time"}).text
     time = datetime.strptime(beautify(time), "%Y-%m-%d")
-    author = soup.find(attrs={"id" : "author"}).text
+    author = soup.find(attrs={"id": "author"}).text
     src = soup.find(attrs={"id": "src"}).a.attrs["href"]
-    render = beautify(soup.find(attrs={"id" : "is_rendered"}).text).split(" ")[1] == "True"
+    render = beautify(soup.find(attrs={"id": "is_rendered"}).text).split(" ")[1] == "True"
     location = parse_location(soup.find(attrs={"id": "location"}))
     news_type = beautify(soup.find(attrs={"id": "news_type"}).text).split(" ", 1)[1]
     attrs_li = soup.find(attrs={"id": "attrs"}).find_all(name="li")
     attrs = {"repost": int(beautify(attrs_li[0].text).split(" ")[1]),
              "comment_number": int(beautify(attrs_li[1].text).split(" ")[1]),
              "attitude": int(beautify(attrs_li[2].text).split(" ")[1])}
-    lead = soup.find(attrs={"id" : "lead"}).strong.text
+    lead = soup.find(attrs={"id": "lead"}).strong.text
     main_text = []
-    for p in soup.find(attrs={"id" : "main_text"}).find_all(name="p"):
+    for p in soup.find(attrs={"id": "main_text"}).find_all(name="p"):
         main_text.append(beautify(p.text))
     analyse = parse_analyse(soup.find(attrs={"id": "analyse_info"}))
     comments = parse_comment_block(soup.find(attrs={"id": "comments"}))
@@ -37,14 +40,11 @@ def parse_from_info(news_info):
     # todo
     pass
 
+
 class News(object):
     r"""
     这是存放新闻的类，计划后期做数据分析的时候也用这个类。
     """
-
-
-
-
 
     def __init__(self,
                  time: date,
@@ -115,8 +115,9 @@ class News(object):
             .add(time).add(author).add(src).add(render).add(location).add(news_type)
 
         # 参数
-        attrs = html_cons.div(id_no="attrs").add(html_cons.li("转发： {repost}".format(repost=self.attrs["repost"]), id_no="repost"))\
-            .add(html_cons.li("评论数量： {comments}".format(comments=self.attrs["comment_number"]), id_no="comment_number"))\
+        attrs = html_cons.div(id_no="attrs").add(
+            html_cons.li("转发： {repost}".format(repost=self.attrs["repost"]), id_no="repost")) \
+            .add(html_cons.li("评论数量： {comments}".format(comments=self.attrs["comment_number"]), id_no="comment_number")) \
             .add(html_cons.li("赞： {attitude}".format(attitude=self.attrs["attitude"]), id_no="attitude"))
 
         # 正文+导语
@@ -144,6 +145,9 @@ class News(object):
                                     .add(analyse)
                                     .add(comments)
                                     ).to_html_string()
+
+    def comment_num(self):
+        return len(self.comments.comments)
 
 
 class _NewsTypes(object):

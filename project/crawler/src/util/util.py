@@ -7,6 +7,8 @@ from urllib import request
 import requests
 from datetime import date
 import time
+import os
+from crawler.src.news import news
 
 headers_1 = {
     'Cookie': 'SINAGLOBAL=8342053747702.012.1598857415409; '
@@ -119,3 +121,17 @@ def beautify(raw: str) -> str:
     raw = raw.replace("\n", "").replace("\r", "")
     raw = raw.strip()
     return raw
+
+
+def news_from_local_file(path: str):
+    files = []
+    for file_name in os.listdir(path):
+        files.append(f"{path}\\{file_name}")
+    for file in files:
+        f = open(file, "r", encoding="utf-8")
+        temp = news.parse_from_info(f.read())
+        f.close()
+        yield temp
+
+
+
