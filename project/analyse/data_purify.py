@@ -13,7 +13,7 @@ def flit(src_dir: str, dest_dir: str, rule):
 
 def keywords_in_news(news: News, keywords: list):
     for keyword in keywords:
-        if (keyword in news.time) or (keyword in news.lead) or (keyword in news.main_text):
+        if (keyword in news.title) or (keyword in news.lead) or (keyword in news.main_text):
             return True
     return False
 

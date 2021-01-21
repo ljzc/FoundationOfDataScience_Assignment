@@ -77,8 +77,8 @@ class Api(object):
 #
 
 
-def weibo_craw(start, end, project_path, headers=util.headers_3):
-    parser = WeiboParser(headers)
+def weibo_craw(start, end, project_path, headers=util.headers_3, default_headers = util.headers_0):
+    parser = WeiboParser(headers, default_headers=default_headers)
     for page in range(start, end, 5):
         f = open(f"{project_path}\\resorce\\weibo_urls({page}页-{page + 4}页).txt", "r", encoding='utf-8')
         weibo_urls = f.read().split("\n")
@@ -101,6 +101,14 @@ def weibo_craw(start, end, project_path, headers=util.headers_3):
                 f.write(f"{weibo_url}\n")
                 f.close()
                 print(f"一个错误发生在访问：{weibo_url} 时，已经将它添加进error.txt中等待处理。 任务继续...")
+            # if weibo_url == '':
+            #     continue
+            # weibo_news = parser.parse(weibo_url)
+            # file_name = "{time}_{title}".format(time=weibo_news.time.strftime("%Y-%m-%d"),
+            #                                     title=util.beautify(weibo_news.title))
+            # path = "{project_path}\\weibo_data".format(project_path=project_path)
+            # code = weibo_news.to_string()
+            # util.to_mark_down(code, path, file_name)
         f = open(f"{project_path}\\resorce\\weibo_urls({page}页-{page + 4}页).txt", "a", encoding='utf-8')
         f.write("finished!")
         f.close()
@@ -112,11 +120,15 @@ def multi_thread(tasks: list, project_path: str):
         headers = task[0]
         start_page = task[1]
         end_page = task[2]
-        thread = threading.Thread(target=weibo_craw, args=(start_page, end_page, project_path, headers))
+        thread = None
+        if len(task) > 3:
+            thread = threading.Thread(target=weibo_craw, args=(start_page, end_page, project_path, headers, task[3]))
+        else:
+            thread = threading.Thread(target=weibo_craw, args=(start_page, end_page, project_path, headers))
         thread.start()
 
 
 if __name__ == '__main__':
     # 1100-2557
-    multi_thread([(util.headers_2, 1200, 1500), (util.headers_3, 1500, 1600)],
+    multi_thread([(util.headers_5, 1300, 1500, util.headers_0), (util.headers_2, 1500, 1600, util.headers_0)],
                  "D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project")

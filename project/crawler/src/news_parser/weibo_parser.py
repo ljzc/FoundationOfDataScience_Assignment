@@ -10,15 +10,29 @@ import re
 from crawler.src.news.comment import Comment
 from crawler.src.news.comment import Comments
 from bs4 import BeautifulSoup
+from analyse.data_purify import keywords_in_news
+
+
+
+
+
+keywords_of_taeget_news = [
+    '新冠', '疫', '确诊', '病例', '医', '患者', '病人',
+    '急诊', '防护服', '肺炎', '防控', '感染', '预防', '隔离',
+    '武汉', '核酸检测'
+
+]
+
 
 
 class WeiboParser(NewsParser, ABC):
-    def __init__(self, headers=util.headers_3):
+    def __init__(self, headers=util.headers_3, default_headers=util.headers_0):
         self.headers = headers
+        self.default_headers = default_headers
 
-    def pages_of(self, url: str):
+    def pages_of(self, url: str, headers):
         pages = []
-        first = util.get_weibo_page("{base}?page={pageNO}".format(base=url, pageNO=1), headers=self.headers)
+        first = util.get_weibo_page("{base}?page={pageNO}".format(base=url, pageNO=1), headers=headers)
         pages.append(first)
         temp = first.find(attrs={'name': 'mp'})
         end = 1
@@ -94,7 +108,15 @@ class WeiboParser(NewsParser, ABC):
         return ret
 
     def parse(self, url: str, **keywords) -> news:
-        result = self.parse_pages(self.pages_of(url))
-
-        return news.News(result['time'], result['author'], url, False, None, news._NewsTypes.CENTRAL_MEDIA,
+        result = self.parse_pages(self.pages_of(url, self.default_headers))
+        raw_news = news.News(result['time'], result['author'], url, False, None, news._NewsTypes.CENTRAL_MEDIA,
                          result['comments'], result['title'], result['lead'], result['main_text'], result['attrs'])
+        if keywords_in_news(raw_news, keywords_of_taeget_news):
+            print('关键词匹配, 继续爬取评论...')
+            new_result = self.parse_pages(self.pages_of(url, self.headers))
+            raw_news.comments = new_result['comments']
+            raw_news.attrs['target'] = True
+        else:
+            print('关键词不匹配, 继续爬取其他url...')
+            raw_news.attrs['target'] = False
+        return raw_news

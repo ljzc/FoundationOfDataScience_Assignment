@@ -77,3 +77,6 @@ class Comments(object):
         for c in self.comments:
             comments.add(c.format()).add(html_cons.hr())
         return comments
+
+    def add_comments(self, new_comments):
+        self.comments = self.comments + new_comments.comments

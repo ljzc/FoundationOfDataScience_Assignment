@@ -2,10 +2,10 @@ from crawler.src.news import news
 from test.util import into_file
 from test.util import into_soup
 from crawler.src.news_parser.weibo_parser import WeiboParser
-
+from crawler.src.util.util import headers_1, headers_2, headers_3, headers_5, headers_0
 
 def test_pages_of():
-    pages = WeiboParser().pages_of("https://weibo.cn/comment/J6T5u243X")
+    pages = WeiboParser(headers_2, default_headers=headers_0).pages_of("https://weibo.cn/comment/J0prpd2nV", headers_2)
     i = 1
     for page in pages:
 

@@ -9,16 +9,18 @@ from datetime import date
 import time
 import os
 from crawler.src.news import news
+headers_0 = {
+
+
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                  'Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.66 '
+}
+
+
+
 
 headers_1 = {
-    'Cookie': 'SINAGLOBAL=8342053747702.012.1598857415409; '
-              'SUB=_2A25y0eOwDeRhGeBO6VIW8S7IzjWIHXVuPY34rDV8PUJbkNANLULBkW1NSj2xDSfM_On3UOcSFN9o7V6rRexLe-_5; '
-              'SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WhoB33PUeGRSyTAY8LWSCdC5NHD95Qcehz7S027Sh-4Ws4Dqcj3i--NiK.4i'
-              '-i2i--RiKn4i-zEi--Ri-2pi-8hi--Ri-2pi-8Feo5pS05E; UOR=,,cn.bing.com; wvr=6; _s_tentry=cn.bing.com; '
-              'Apache=5960090841135.644.1608721872186; '
-              'ULV=1608721872224:8:3:1:5960090841135.644.1608721872186:1607831737835; '
-              'webim_unReadCount=%7B%22time%22%3A1608721874169%2C%22dm_pub_total%22%3A4%2C%22chat_group_client%22'
-              '%3A0%2C%22chat_group_notice%22%3A0%2C%22allcountNum%22%3A50%2C%22msgbox%22%3A0%7D ',
+    'Cookie': '_T_WM=0c1a41709a5fff9c7701d3964bb29a7e; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WW.uPDJyarNIZ2OOcy23qvu5NHD95QEeKq41K2EeoqEWs4Dqcj6i--RiKn7iKnfi--ci-z0iK.ci--4iKL2iK.Ei--ci-2EiKnfi--fiK.EiKyhi--Ni-iFi-isi--RiKyhi-zc; SUB=_2AkMXVEXKdcPxrAFQnvEczWngao9H-jykgSw8An7oJhMyPRhu7lIJqSdutBF-XKxpahFXagwJ2zCmDtxgh9yhxKN-',
 
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
                   'Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.66 '
@@ -43,6 +45,28 @@ headers_3 = {
                   'Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75 '
 
 }
+
+headers_4 = {
+    'Cookie': '_T_WM=0c1a41709a5fff9c7701d3964bb29a7e; '
+              'SUB=_2A25NDALmDeRhGeBO7FYY-CbEwj6IHXVuDq6urDV6PUJbktANLU7mkW1NRboZimSh1pVU5Zq7KxKULCHCzZ58nCUP; '
+              'SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WWG6adMX-0buMXSXpWnGJUq5NHD95QcehMX1KnR1h.EWs4Dqcj6i--ciK.Ni-27i'
+              '--ci-zpiKnEi--fiKLFi-i2i--4iK.4iKnfi--Ni-8Fi-27i--fi-2Xi-24i--fiK.0iK.4; SSOLoginState=1611166390 ',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                  'Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75 '
+
+}
+
+headers_5 = {
+    'Cookie': '_T_WM=80dedbbe93486578fe949da3a8af3292; '
+              'SUB=_2A25NDJu6DeRhGeRP7VsY8SzOzT6IHXVuDiXyrDV6PUJbktANLW_gkW1NUB9_DG97Tn200WJ3yAgV0jacsNCHL3Fy; '
+              'SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WW.uPDJyarNIZ2OOcy23qvu5NHD95QEeKq41K2EeoqEWs4Dqcj6i--RiKn7iKnfi'
+              '--ci-z0iK.ci--4iKL2iK.Ei--ci-2EiKnfi--fiK.EiKyhi--Ni-iFi-isi--RiKyhi-zc; SSOLoginState=1611197418 '
+              '-z0iK.ci--4iKL2iK.Ei--ci-2EiKnfi--fiK.EiKyhi--Ni-iFi-isi--RiKyhi-zc; SSOLoginState=1611166960',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                  'Chrome/88.0.4324.96 Safari/537.36 '
+}
+
+
 
 
 # def detect_encoding(url, headers=None):
@@ -132,6 +156,3 @@ def news_from_local_file(path: str):
         temp = news.parse_from_info(f.read())
         f.close()
         yield temp
-
-
-

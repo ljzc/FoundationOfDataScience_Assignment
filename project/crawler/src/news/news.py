@@ -30,6 +30,10 @@ def parse_from_info(news_info):
     attrs = {"repost": int(beautify(attrs_li[0].text).split(" ")[1]),
              "comment_number": int(beautify(attrs_li[1].text).split(" ")[1]),
              "attitude": int(beautify(attrs_li[2].text).split(" ")[1])}
+    if len(attrs_li) > 3:
+        attrs['target'] = beautify(attrs_li[3].text).split(' ')[1] == 'True'
+    else:
+        attrs['target'] = True
     lead = soup.find(attrs={"id": "lead"}).strong.text
     main_text = []
     for p in soup.find(attrs={"id": "main_text"}).find_all(name="p"):
@@ -118,7 +122,8 @@ class News(object):
         attrs = html_cons.div(id_no="attrs").add(
             html_cons.li("转发： {repost}".format(repost=self.attrs["repost"]), id_no="repost")) \
             .add(html_cons.li("评论数量： {comments}".format(comments=self.attrs["comment_number"]), id_no="comment_number")) \
-            .add(html_cons.li("赞： {attitude}".format(attitude=self.attrs["attitude"]), id_no="attitude"))
+            .add(html_cons.li("赞： {attitude}".format(attitude=self.attrs["attitude"]), id_no="attitude"))\
+            .add(html_cons.li("疫情相关： {target}".format(target=self.attrs["target"]), id_no="target"))
 
         # 正文+导语
         lead = html_cons.p(id_no="lead").add(html_cons.strong(self.lead))
