@@ -8,6 +8,7 @@ import requests
 from datetime import date
 import time
 import os
+import datetime
 from crawler.src.news import news
 headers_0 = {
 
@@ -120,7 +121,9 @@ def to_mark_down(code, path="news_info", name=""):
     try:
         f = open("{path}\\{name}.md".format(path=path, name=name), "w", encoding="utf-8")
     except OSError:
-        f = open("{path}\\{name}.md".format(path=path, name=f"{date.today().strftime('%Y-%m-%d')}_原命名不合法"), "w",
+        f = open("{path}\\{name}.md".format(path=path,
+                                            name=f"{date.today().strftime('%Y-%m-%d')}_原命名不合法_{round(1000000 * datetime.datetime.now().timestamp())}_{round(random.random()*100000000000 )}"),
+                 "w",
                  encoding="utf-8")
     f.write(code)
     f.close()
@@ -147,12 +150,4 @@ def beautify(raw: str) -> str:
     return raw
 
 
-def news_from_local_file(path: str):
-    files = []
-    for file_name in os.listdir(path):
-        files.append(f"{path}\\{file_name}")
-    for file in files:
-        f = open(file, "r", encoding="utf-8")
-        temp = news.parse_from_info(f.read())
-        f.close()
-        yield temp
+

@@ -7,6 +7,10 @@ from crawler.src.news_parser.xinlang_news_parser import *
 from crawler.src.news_parser.weibo_parser import WeiboParser
 from crawler.src.crawl_strategy.other_strategy import WeiboStrategy as WStra
 import threading
+import datetime
+import math
+import random
+
 
 parsers = {re.compile("^https://baijiahao\\.baidu\\.com/s\\?id=[0-9]+.+$"): BaiDuNewsParser(),
            re.compile("^https://epaper\\.scdaily\\.cn/shtml/scrb/[0-9]+/[0-9]+\\.shtml$"): SiChuanNews(),
@@ -77,7 +81,7 @@ class Api(object):
 #
 
 
-def weibo_craw(start, end, project_path, headers=util.headers_3, default_headers = util.headers_0):
+def weibo_craw(start, end, project_path, headers=util.headers_3, default_headers=util.headers_0):
     parser = WeiboParser(headers, default_headers=default_headers)
     for page in range(start, end, 5):
         f = open(f"{project_path}\\resorce\\weibo_urls({page}页-{page + 4}页).txt", "r", encoding='utf-8')
@@ -115,6 +119,27 @@ def weibo_craw(start, end, project_path, headers=util.headers_3, default_headers
         print(f"已完成：weibo_urls({page}页-{page + 4}页).txt")
 
 
+def weibo_craw_from_urls(urls: list, project_path, headers=util.headers_3, default_headers=util.headers_0):
+    parser = WeiboParser(headers, default_headers=default_headers)
+    for weibo_url in urls:
+        try:
+            if weibo_url == '':
+                continue
+            weibo_news = parser.parse(weibo_url)
+            file_name = "{time}_{title}_{time_stemp}_{random}".format(time=weibo_news.time.strftime("%Y-%m-%d"),
+                                                title=util.beautify(weibo_news.title),
+                                                time_stemp=round(1000000 * datetime.datetime.now().timestamp()),
+                                                random=round(random.random()*100000000000 ))
+            path = "{project_path}\\weibo_data".format(project_path=project_path)
+            code = weibo_news.to_string()
+            util.to_mark_down(code, path, file_name)
+        except:
+            f = open(f"{project_path}\\error.txt", "a", encoding='utf-8')
+            f.write(f"{weibo_url}\n")
+            f.close()
+            print(f"一个错误发生在访问：{weibo_url} 时，已经将它添加进error.txt中等待处理。 任务继续...")
+
+
 def multi_thread(tasks: list, project_path: str):
     for task in tasks:
         headers = task[0]
@@ -128,7 +153,29 @@ def multi_thread(tasks: list, project_path: str):
         thread.start()
 
 
+def multi_thread_form_urls(headers_set: list, project_path, src_file, default_headers):
+    f = open(f"{project_path}//{src_file}", "r", encoding='utf-8')
+    weibo_urls = f.read().split("\n")
+    if weibo_urls[-1] == '\n':
+        weibo_urls = weibo_urls[: -1]
+    f.close()
+    total = len(weibo_urls)
+    task_amount = total // len(headers_set)
+    current = 0
+    for headers in headers_set:
+        task = None
+        if current + task_amount > total:
+            task = weibo_urls[current:]
+        else:
+            task = weibo_urls[current: current + task_amount]
+        thread = threading.Thread(target=weibo_craw_from_urls, args=(task, project_path, headers, default_headers))
+        thread.start()
+        current += task_amount
+
 if __name__ == '__main__':
     # 1100-2557
-    multi_thread([(util.headers_5, 1300, 1500, util.headers_0), (util.headers_2, 1500, 1600, util.headers_0)],
-                 "D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project")
+    # multi_thread([(util.headers_5, 2145 , 2210, util.headers_0), (util.headers_2, 2210, 2300, util.headers_0)], "D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project")
+    multi_thread_form_urls([util.headers_5, util.headers_2],
+                           "D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project",
+                           'result_1.txt',
+                           util.headers_0)
