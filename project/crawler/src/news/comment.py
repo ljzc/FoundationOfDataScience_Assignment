@@ -2,7 +2,7 @@ from datetime import datetime
 import crawler.src.util.html_constructor as html_cons
 from bs4 import BeautifulSoup
 from crawler.src.util.util import beautify
-
+import re
 
 def parse_analyse_info(analyse_info):
     pass
@@ -43,6 +43,7 @@ class Comment(object):
         :param author: 评论的作者（我不知道记录作者会不会侵犯别人的权利....）
         :param attrs: 评论参数，例如是否热门，赞数量等
         """
+
         self.time = time
         self.content = content
         self.author = author
