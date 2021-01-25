@@ -104,7 +104,7 @@ def inner_associate_result_of(limit: tuple, target_word, word_model, similarity:
 
 
 
-def associate_for_all_duration(word_model, mind_dict_dir, target_words_dict_path, limit: tuple):
+def iterate_by_associating(word_model, mind_dict_dir, target_words_dict_path, limit: tuple):
     f = open(target_words_dict_path, "r", encoding="utf-8")
     mind_types = f.read().split("\n\n")
     target_words_dict = {}
@@ -141,12 +141,10 @@ def associate_for_all_duration(word_model, mind_dict_dir, target_words_dict_path
 if __name__ == '__main__':
 
     model = load_vector('embedding.bin')
-    new_dict = associate_for_all_duration(
-        model,
-        f"D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\analyse\\mind_dictionary",
-        f"D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\analyse\\mind_dictionary\\第三次迭代结果（100~120）.txt",
-        (100, 120)
-            )
+    new_dict = associate(model,
+                         f"D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\analyse\\mind_dictionary",
+                         f"D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\analyse\\mind_dictionary\\第三次迭代结果（100~120）.txt",
+                         (100, 120))
     #print(associate_with_limit((10, 15), "好开心", model))
     n_mind_dict = []
     amount = 0

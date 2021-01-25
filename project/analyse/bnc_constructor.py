@@ -6,6 +6,8 @@ from analyse.analyse_util import news_from_local_file
 import re
 import datetime
 import os
+
+
 def construct_bnc_comment(dir_path, dest_dir):
     comments_dict = {}
     for name, news in news_from_local_file(dir_path):
@@ -13,7 +15,7 @@ def construct_bnc_comment(dir_path, dest_dir):
             if comment.time in comments_dict:
                 comments_dict[comment.time].append(comment)
             else:
-                comments_dict[comment.time] = [comment,]
+                comments_dict[comment.time] = [comment, ]
     for time in comments_dict.keys():
         f = open(f'{dest_dir}//{time.strftime("%Y-%m-%d")}.txt', "a", encoding='utf-8')
         for comment in comments_dict[time]:
@@ -23,7 +25,8 @@ def construct_bnc_comment(dir_path, dest_dir):
             f.write("\n".join(lines) + "\n")
         f.close()
 
-def putify_all_bnc_in(dir_path):
+
+def purify_all_bnc_in(dir_path):
     for name in os.listdir(dir_path):
         print(f"正在处理：{dir_path}\\{name}")
         f = open(f"{dir_path}\\{name}", "r", encoding='utf-8')
@@ -31,10 +34,6 @@ def putify_all_bnc_in(dir_path):
         f.close()
         f = open(f"{dir_path}\\{name}", "w", encoding='utf-8')
         f.write(result)
-
-
-
-
 
 
 def construct_bnc(dir_path):
@@ -54,8 +53,9 @@ def construct_bnc(dir_path):
             if sentences[i] != '':
                 result.append(sentences[i].strip().replace("\n", ""))
 
-        f.write("\n".join(result)+"\n")
+        f.write("\n".join(result) + "\n")
     f.close()
+
 
 def purify_comment(comment: str):
     result = re.match("(回复[\u0040\uff20].+?[\uff1a\u003a])(.+)", comment)
@@ -63,6 +63,7 @@ def purify_comment(comment: str):
         return result[2]
     else:
         return comment
+
 
 def break_by_sentence(paragraph: str):
     return re.split('[\uff01\uff0e\uff1f\uff1b]', paragraph)
@@ -77,8 +78,7 @@ def purify_sentence(sentence: str):
 
 
 def cut_into_sort_sentence(long_sentence: str):
-
-    raw_cut = re.split("[\uff1a\u003a\uff0c\u002c]",long_sentence.strip())
+    raw_cut = re.split("[\uff1a\u003a\uff0c\u002c]", long_sentence.strip())
     for i in range(0, len(raw_cut)):
         raw_cut[i] = list(jieba.cut(purify_sentence(raw_cut[i])))
 
@@ -97,6 +97,7 @@ def cut_into_sort_sentence(long_sentence: str):
         current_len = 0
     return short_sentences
 
+
 def combine(dir_path: str):
     for sub_sir in os.listdir(dir_path):
         res = []
@@ -107,7 +108,6 @@ def combine(dir_path: str):
         f = open(f"{dir_path}\\{sub_sir}.txt", "w", encoding="utf-8")
         f.writelines(res)
         f.close()
-
 
 
 if __name__ == '__main__':

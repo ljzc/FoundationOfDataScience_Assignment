@@ -47,6 +47,17 @@ def load_vector(path: str):
     model = KeyedVectors.load_word2vec_format(path, binary=True)
     words = list(model.wv.vocab)
     print("words = ", words)
+    X = model[model.wv.vocab]
+    pca = PCA(n_components=2)
+    result = pca.fit_transform(X)
+
+    pyplot.scatter(result[:, 0], result[:, 1])
+    words = list(model.wv.vocab)
+    for i, word in enumerate(words):
+        pyplot.annotate(word, xy=(result[i, 0], result[i, 1]))
+    pyplot.savefig("总体词库词向量可视化.jpeg", dpi=500)
+    pyplot.show()
+    return pyplot
     return model
 
 def create_models(in_dir, out_dir):
@@ -66,4 +77,4 @@ def create_models(in_dir, out_dir):
 
 
 if __name__ == '__main__':
-    load_vector("D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\analyse\\embedding.bin")
+    load_vector("D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\analyse\\comment_model\\embedding.bin")

@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9b6790c-b2fb-4f3a-8b64-3027e20c52f6" name="Default Changelist" comment="心态词典头脑风暴，和微博解析" />
+    <list default="true" id="e9b6790c-b2fb-4f3a-8b64-3027e20c52f6" name="Default Changelist" comment="。。。" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,6 +66,7 @@
       <workItem from="1608973404728" duration="114000" />
       <workItem from="1608992826693" duration="30000" />
       <workItem from="1610012882010" duration="26000" />
+      <workItem from="1611551084187" duration="578000" />
     </task>
     <task id="LOCAL-00001" summary="李蒋泽辰_添加了“相关知识”文件夹，其中包括python爬虫学习笔记与《HTML &amp; CSS设计与构建网站》读书笔记。">
       <created>1605363929871</created>
@@ -102,7 +103,35 @@
       <option name="project" value="LOCAL" />
       <updated>1608973459930</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="心态词典头脑风暴，和微博解析">
+      <created>1611551136488</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611551136488</updated>
+    </task>
+    <task id="LOCAL-00007" summary="心态词典头脑风暴，和微博解析">
+      <created>1611551163257</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611551163257</updated>
+    </task>
+    <task id="LOCAL-00008" summary="。。。">
+      <created>1611551650404</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611551650404</updated>
+    </task>
+    <task id="LOCAL-00009" summary="。。。">
+      <created>1611551664442</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1611551664442</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,7 +154,8 @@
     <MESSAGE value="李蒋泽辰_添加了会议记录文件夹，其中包括第一次会议记录兼第一阶段计划; 添加了python爬虫的相关学习笔记" />
     <MESSAGE value="李蒋泽辰_添加了项目整体进程" />
     <MESSAGE value="心态词典头脑风暴，和微博解析" />
-    <option name="LAST_COMMIT_MESSAGE" value="心态词典头脑风暴，和微博解析" />
+    <MESSAGE value="。。。" />
+    <option name="LAST_COMMIT_MESSAGE" value="。。。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="374" y="239" key="Vcs.Push.Dialog.v2" timestamp="1608973473709">
