@@ -2,7 +2,6 @@ from datetime import datetime
 import crawler.src.util.html_constructor as html_cons
 from bs4 import BeautifulSoup
 from crawler.src.util.util import beautify
-import re
 
 def parse_analyse_info(analyse_info):
     pass

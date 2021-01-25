@@ -10,6 +10,8 @@ import threading
 import datetime
 import math
 import random
+from analyse.analyse_util import news_from_local_file
+import os
 
 
 parsers = {re.compile("^https://baijiahao\\.baidu\\.com/s\\?id=[0-9]+.+$"): BaiDuNewsParser(),
@@ -172,10 +174,33 @@ def multi_thread_form_urls(headers_set: list, project_path, src_file, default_he
         thread.start()
         current += task_amount
 
+def recraw(dir_path):
+    parser = WeiboParser(headers=util.headers_3, default_headers=util.headers_0)
+    for name, news in news_from_local_file(dir_path):
+        try:
+            if name.split("_")[-1] != 'finished.md':
+                news = parser.re_parse_main_news(news)
+                f = open(f"{dir_path}\\{name.split('.')[0]}_finished.{name.split('.')[1]}", 'w', encoding='utf-8')
+                f.write(news.to_string())
+                f.close()
+                os.remove(f"{dir_path}\\{name}")
+        except:
+            pass
+
+def rename(dir_path):
+    for name, news in news_from_local_file(dir_path):
+            f = open(f"{dir_path}\\{news.time.strftime('%Y-%m-%d')}_{news.src.split('/')[-1]}.md", 'w', encoding='utf-8')
+            f.write(news.to_string())
+            f.close()
+            os.remove(f"{dir_path}\\{name}")
+
+
 if __name__ == '__main__':
-    # 1100-2557
-    # multi_thread([(util.headers_5, 2145 , 2210, util.headers_0), (util.headers_2, 2210, 2300, util.headers_0)], "D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project")
-    multi_thread_form_urls([util.headers_5, util.headers_2],
-                           "D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project",
-                           'result_1.txt',
-                           util.headers_0)
+    # # 1100-2557
+    # # multi_thread([(util.headers_5, 2145 , 2210, util.headers_0), (util.headers_2, 2210, 2300, util.headers_0)], "D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project")
+    # multi_thread_form_urls([util.headers_5, util.headers_2],
+    #                        "D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project",
+    #                        'result_1.txt',
+    #                        util.headers_0)
+    #recraw('D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\filted')
+    rename('D:\\OnDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\weibo_data')

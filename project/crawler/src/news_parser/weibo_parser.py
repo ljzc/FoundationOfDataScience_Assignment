@@ -81,7 +81,13 @@ class WeiboParser(NewsParser, ABC):
         ret['author'] = beautify(main_news.div.a.text)
         main_content = main_news.find(name='span', attrs={'class': 'ctt'})
         ret['title'] = beautify(main_content.find_next(name='a').text + main_content.find_next(name='a').text)
-        text = main_content.text.split("。", 1)
+
+        text = main_content.text
+
+        if isinstance(main_content.nextSibling, str) and len(main_content.nextSibling) > 1:
+            text = text + main_content.nextSibling
+        text = beautify(text)
+        text = re.split("[。]", text, 1)
         ret['lead'] = beautify(text[0])
         if len(text) > 1:
             ret['main_text'] = text[1].split("\n")
@@ -104,6 +110,7 @@ class WeiboParser(NewsParser, ABC):
         target = news_attrs.find(text=re.compile(".*赞\\[[0-9]+].*"))
         result = re.match(".*?([0-9]+).*?", str(target).replace("\n", "").replace(" ", ""))
         ret['attrs']['attitude'] = int(result[1])
+        ret['attrs']['target'] = False
         ret['comments'] = self.parse_comments(pages)
         return ret
 
@@ -120,3 +127,21 @@ class WeiboParser(NewsParser, ABC):
             print('关键词不匹配, 继续爬取其他url...')
             raw_news.attrs['target'] = False
         return raw_news
+
+    def re_parse_main_news(self, news):
+        ret = {}
+        first = util.get_weibo_page("{base}".format(base=news.src), headers=self.default_headers)
+        main_news = first.find(attrs={'class': 'c', 'id': 'M_'})
+        main_content = main_news.find(name='span', attrs={'class': 'ctt'})
+        news.title = beautify(main_content.find_next(name='a').text + main_content.find_next(name='a').text)
+        text = main_content.text
+        if isinstance(main_content.nextSibling, str) and len(main_content.nextSibling) > 1:
+            text = text + main_content.nextSibling
+        text = beautify(text)
+        text = re.split("[。]", text, 1)
+        news.lead = beautify(text[0])
+        if len(text) > 1:
+            news.main_text = text[1].split("\n")
+        else:
+            news.main_text = []
+        return news

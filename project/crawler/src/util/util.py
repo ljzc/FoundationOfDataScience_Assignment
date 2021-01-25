@@ -3,22 +3,16 @@ import random
 import chardet
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from urllib import request
 import requests
 from datetime import date
 import time
-import os
 import datetime
-from crawler.src.news import news
-headers_0 = {
 
+headers_0 = {
 
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
                   'Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.66 '
 }
-
-
-
 
 headers_1 = {
     'Cookie': '_T_WM=0c1a41709a5fff9c7701d3964bb29a7e; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WW.uPDJyarNIZ2OOcy23qvu5NHD95QEeKq41K2EeoqEWs4Dqcj6i--RiKn7iKnfi--ci-z0iK.ci--4iKL2iK.Ei--ci-2EiKnfi--fiK.EiKyhi--Ni-iFi-isi--RiKyhi-zc; SUB=_2AkMXVEXKdcPxrAFQnvEczWngao9H-jykgSw8An7oJhMyPRhu7lIJqSdutBF-XKxpahFXagwJ2zCmDtxgh9yhxKN-',
@@ -66,8 +60,6 @@ headers_5 = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
                   'Chrome/88.0.4324.96 Safari/537.36 '
 }
-
-
 
 
 # def detect_encoding(url, headers=None):
@@ -122,7 +114,7 @@ def to_mark_down(code, path="news_info", name=""):
         f = open("{path}\\{name}.md".format(path=path, name=name), "w", encoding="utf-8")
     except OSError:
         f = open("{path}\\{name}.md".format(path=path,
-                                            name=f"{date.today().strftime('%Y-%m-%d')}_原命名不合法_{round(1000000 * datetime.datetime.now().timestamp())}_{round(random.random()*100000000000 )}"),
+                                            name=f"{date.today().strftime('%Y-%m-%d')}_原命名不合法_{round(1000000 * datetime.datetime.now().timestamp())}_{round(random.random() * 100000000000)}"),
                  "w",
                  encoding="utf-8")
     f.write(code)
@@ -148,6 +140,3 @@ def beautify(raw: str) -> str:
     raw = raw.replace("\n", "").replace("\r", "")
     raw = raw.strip()
     return raw
-
-
-

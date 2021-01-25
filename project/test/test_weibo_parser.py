@@ -5,7 +5,7 @@ from crawler.src.news_parser.weibo_parser import WeiboParser
 from crawler.src.util.util import headers_1, headers_2, headers_3, headers_5, headers_0
 
 def test_pages_of():
-    pages = WeiboParser(headers_2, default_headers=headers_0).pages_of("https://weibo.cn/comment/J0prpd2nV", headers_2)
+    pages = WeiboParser(headers_2, default_headers=headers_0).pages_of("https://weibo.cn/comment/J6TdBd3mQ", headers_2)
     i = 1
     for page in pages:
 
@@ -15,8 +15,8 @@ def test_pages_of():
 def test_parse_pages():
     pages = []
     path = 'D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\test' \
-           '\\html_code\\评论列表(2021-01-19)_第{pageNO}页.html '
-    for i in range(1, 17):
+           '\\html_code\\评论列表(2021-01-23)_第{pageNO}页.html '
+    for i in range(1, 41):
         pages.append(into_soup(path.format(pageNO=i)))
     result = WeiboParser().parse_pages(pages)
     ret = news.News(result['time'], result['author'], "test", False, None, news._NewsTypes.CENTRAL_MEDIA,

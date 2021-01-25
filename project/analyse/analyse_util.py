@@ -1,5 +1,8 @@
 import os
 from datetime import datetime
+
+from gensim import corpora
+
 from crawler.src.news.news import parse_from_info
 import re
 from numpy import ndarray
@@ -146,19 +149,84 @@ def chi_square_test(bins, mu, sigma, data):
           f"假设成立的最小置信度： {p}")
 
 
+def get_texts(dir_path):
+    texts = []
+    names = []
+    for name in os.listdir(dir_path):
+        f = open(f"{dir_path}\\{name}", "r", encoding="utf-8")
+        texts.append(" ".join(f.read().split("\n")).split(" "))
+        names.append(name)
+    return names, texts
+
+
+
+def create_mind_frequency(dir_path, mind_dict: dict):
+    result = {}
+    mind_types = list(mind_dict.keys())
+    for mind_type in mind_dict.keys():
+        result[mind_type] = {}
+    names, texts = get_texts(dir_path)
+
+    times = []
+    for i in range(len(names)):
+        time = datetime.strptime(names[i].split(".")[0], "%Y-%m-%d")
+        times.append(time)
+        content = texts[i]
+        total = 0
+        for mind_type in mind_types:
+            cnt = 0
+            for word in mind_dict[mind_type]:
+                temp = content.count(word)
+                cnt += temp
+                print(f"{mind_type}({word})：{temp}")
+            result[mind_type][time] = cnt
+            total += cnt
+            print(f"{time.strftime('%Y-%m-%d')}，{mind_type}，{cnt}")
+        # for mind_type in mind_types:
+        #     if total != 0:
+        #         result[mind_type][time] /= total
+
+    res_str = []
+    for mind_type in mind_types:
+        times = sorted(times)
+        temp = []
+        for time in times:
+            temp.append(str(result[mind_type][time]))
+        res_str.append(f"{mind_type},{','.join(temp)}")
+    f = open("result_amount.csv", "w")
+    f.write("\n".join(res_str))
+    f.close()
+    return result
+
+
+
+def get_dict(path):
+    f = open(path, "r", encoding="utf-8")
+    mind_types = f.read().split("\n\n")
+    target_words_dict = {}
+    for type in mind_types:
+        type = type.split("：")
+        target_words_dict[type[0]] = type[1].split("，")
+    return target_words_dict
+
+
+
+
 if __name__ == '__main__':
-    # attrs_file_of_news_set(news_from_local_file('C:\\Users\\ljzc\\Desktop\\新建文件夹'))
-    # comment = np.loadtxt(
-    #     'D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\analyse\\2021-01-22 11-32-18微博转赞评论(8314).csv',
-    #     delimiter=", ", skiprows=1, usecols=(2,), unpack=True, encoding='utf-8')
-    # comment = filter_np(lambda a: a < 1000, comment)
-    # comment = np.log(comment)
-    #
-    # chi_square_test(bins_of(comment, 10, 0.1), np.average(comment), np.std(comment, ddof=1), comment)
-    # print(central_moment(comment, 3) / ((np.std(comment, ddof=1)) ** 3))
-    # print(np.max(comment))
-    # find_left_out('D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\resorce_2', 'C:\\Users\\ljzc\\Desktop\\微博数据集')
-    # data = np.random.randn(9000)
-    # chi_square_test(bins_of(data, 10, 0.1), np.average(data), np.std(data,ddof=1), data)
-    for news in news_from_local_file('D:\OneDrive\文档\大二上\数据科学基础大作业\FoundationOfDataScience_Assignment\project\weibo_data'):
-        news.comments
+    # # attrs_file_of_news_set(news_from_local_file('C:\\Users\\ljzc\\Desktop\\新建文件夹'))
+    # # comment = np.loadtxt(
+    # #     'D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\analyse\\2021-01-22 11-32-18微博转赞评论(8314).csv',
+    # #     delimiter=", ", skiprows=1, usecols=(2,), unpack=True, encoding='utf-8')
+    # # comment = filter_np(lambda a: a < 1000, comment)
+    # # comment =c np.log(comment)
+    # #
+    # # chi_square_test(bins_of(comment, 10, 0.1), np.average(comment), np.std(comment, ddof=1), comment)
+    # # print(central_moment(comment, 3) / ((np.std(comment, ddof=1)) ** 3))
+    # # print(np.max(comment))
+    # # find_left_out('D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\resorce_2', 'C:\\Users\\ljzc\\Desktop\\微博数据集')
+    # # data = np.random.randn(9000)
+    # # chi_square_test(bins_of(data, 10, 0.1), np.average(data), np.std(data,ddof=1), data)
+    # for news in news_from_local_file('D:\OneDrive\文档\大二上\数据科学基础大作业\FoundationOfDataScience_Assignment\project\weibo_data'):
+    #     news.comments
+    mind_dict = get_dict("D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\analyse\\mind_dictionary\\第四次迭代结果（100~120）.txt")
+    create_mind_frequency("D:\\OneDrive\\文档\\大二上\\数据科学基础大作业\\FoundationOfDataScience_Assignment\\project\\analyse\\comment_bnt\\all", mind_dict)
